@@ -1,45 +1,82 @@
 import Link from "next/link";
+import { SERVE_GROUPS } from "@/lib/nav";
+
+const SEGMENTS = SERVE_GROUPS.flatMap((g) => g.items);
 
 export default function Home() {
   return (
-    <div className="py-12">
+    <div className="py-8">
+      {/* Hero */}
       <p className="text-sm font-medium uppercase tracking-widest text-gray-400">
-        Hello 👋
+        Workforce mobility, connected
       </p>
-      <h1 className="mt-4 max-w-2xl text-5xl font-semibold tracking-tight">
-        A marketing site you control, with a CMS your team will love.
+      <h1 className="mt-4 max-w-3xl text-5xl font-semibold tracking-tight">
+        Connecting talent to opportunity — through the organizations they
+        already trust.
       </h1>
-      <p className="mt-6 max-w-xl text-lg leading-8 text-gray-600">
-        Hand-built pages for pixel-perfect design, plus a Sanity-powered blog and
-        case studies your team edits in a real web GUI — no code required.
+      <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+        Runwayz is a two-sided platform. For individuals, a clear path to better
+        work. For unions, employers, and schools, a way to bring real career
+        mobility to the people they serve.
       </p>
-
       <div className="mt-8 flex flex-wrap gap-4">
         <Link
-          href="/case-studies"
+          href="/talent"
           className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-700"
         >
-          View Case Studies
+          For individuals
         </Link>
         <Link
-          href="/blog"
+          href="/contact"
           className="rounded-full border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50"
         >
-          Read the Blog
+          Get a demo
         </Link>
       </div>
 
-      <div className="mt-16 grid gap-6 sm:grid-cols-3">
-        {[
-          { title: "Designed in code", body: "Marketing & content templates we own end-to-end." },
-          { title: "Edited in a GUI", body: "Your team logs into Sanity Studio to publish." },
-          { title: "HubSpot ready", body: "Drop forms anywhere, even mid-article." },
-        ].map((f) => (
-          <div key={f.title} className="rounded-xl border border-gray-100 p-6">
-            <h2 className="font-semibold">{f.title}</h2>
-            <p className="mt-2 text-sm text-gray-600">{f.body}</p>
+      {/* Two sides */}
+      <div className="mt-20 grid gap-6 md:grid-cols-2">
+        <Link
+          href="/talent"
+          className="group rounded-2xl border border-gray-100 p-8 hover:border-gray-300"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            For Talent
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight">
+            Find your next opportunity
+          </h2>
+          <p className="mt-2 text-gray-600">
+            Training, credentials, and jobs — surfaced through the union,
+            program, or school you already belong to.
+          </p>
+          <span className="mt-4 inline-block text-sm font-medium text-gray-900 group-hover:underline">
+            Explore for talent →
+          </span>
+        </Link>
+
+        <div className="rounded-2xl border border-gray-100 p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            For Organizations
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight">
+            Bring mobility to your people
+          </h2>
+          <p className="mt-2 text-gray-600">
+            Bring Runwayz to the people you serve:
+          </p>
+          <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {SEGMENTS.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50"
+              >
+                {s.label} →
+              </Link>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
