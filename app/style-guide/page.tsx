@@ -193,31 +193,68 @@ export default function StyleGuidePage() {
       {/* Typography */}
       <Section
         n="05"
-        title="Typography — Cabin"
-        desc="Humanist sans in the Gill Sans tradition. Weight tops out at 700, so 700 handles display (the spec's 900 isn't available in Cabin)."
+        title="Typography"
+        desc="Gill Sans is the primary typeface across all brand communications — print, decks, signage, collateral. Cabin is the secondary, open-source substitute used on digital surfaces where Gill Sans can't be licensed for the web."
       >
-        <div className="space-y-6">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Display · 700 · -0.02em</p>
-            <p className="text-5xl font-bold tracking-tight text-fg1">Build something real.</p>
-          </div>
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Heading 1 · 700</p>
-            <p className="text-4xl font-bold tracking-tight text-fg1">Real work. Real pay.</p>
-          </div>
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Heading 2 · 700</p>
-            <p className="text-2xl font-bold tracking-tight text-fg1">The basics</p>
-          </div>
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Eyebrow · 700 · 0.16em · UPPER</p>
-            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg2">Section 01</p>
-          </div>
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Body · 400 · 1.55</p>
-            <p className="max-w-xl text-base leading-[1.55] text-fg1">
-              Plumbers make an average of $120K per year. Just saying.
+        <div className="space-y-10">
+          {/* Primary — Gill Sans */}
+          <div className="rounded-xl border border-border bg-surface p-6">
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-accent">
+              Primary · Gill Sans
             </p>
+            <p className="mt-1 max-w-xl text-sm text-fg2">
+              Licensed (Monotype). The face for all brand &amp; design
+              communications. Renders below if Gill Sans is installed locally
+              (e.g. macOS); otherwise it falls back to the web font.
+            </p>
+            <p
+              className="mt-4 text-5xl font-bold tracking-tight text-fg1"
+              style={{ fontFamily: "'Gill Sans', 'Gill Sans MT', var(--font-cabin), sans-serif" }}
+            >
+              Build something real.
+            </p>
+            <p
+              className="mt-2 text-lg text-fg2"
+              style={{ fontFamily: "'Gill Sans', 'Gill Sans MT', var(--font-cabin), sans-serif" }}
+            >
+              Hard skills, soft life. Future careers, taking off.
+            </p>
+          </div>
+
+          {/* Secondary — Cabin (web) */}
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">
+              Secondary · Cabin (web)
+            </p>
+            <p className="mt-1 max-w-xl text-sm text-fg2">
+              Open-source (OFL), humanist in the Gill Sans tradition — the live
+              web font for this site. Weight tops out at 700, which handles
+              display.
+            </p>
+            <div className="mt-6 space-y-6">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Display · 700 · -0.02em</p>
+                <p className="text-5xl font-bold tracking-tight text-fg1">Build something real.</p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Heading 1 · 700</p>
+                <p className="text-4xl font-bold tracking-tight text-fg1">Real work. Real pay.</p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Heading 2 · 700</p>
+                <p className="text-2xl font-bold tracking-tight text-fg1">The basics</p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Eyebrow · 700 · 0.16em · UPPER</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg2">Section 01</p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Body · 400 · 1.55</p>
+                <p className="max-w-xl text-base leading-[1.55] text-fg1">
+                  Plumbers make an average of $120K per year. Just saying.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
