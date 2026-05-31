@@ -25,6 +25,7 @@ export function ThemeToggle({ subtle = false }: { subtle?: boolean }) {
       type="button"
       onClick={toggle}
       aria-label="Toggle dark mode"
+      aria-pressed={mounted ? dark : undefined}
       title="Toggle dark mode"
       className={
         subtle

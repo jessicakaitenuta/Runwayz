@@ -122,7 +122,7 @@ export default function StyleGuidePage() {
               <img
                 key={p}
                 src={`/brand/vibe/${p}`}
-                alt={p}
+                alt={`Runwayz brand poster — ${p.replace(/\.[^.]+$/, "").replace(/-/g, " ")}`}
                 className="w-full rounded-xl border border-border"
               />
             ))}
@@ -311,14 +311,14 @@ export default function StyleGuidePage() {
             <label className="block text-sm font-medium text-fg1">Full name</label>
             <input
               placeholder="Charlie D."
-              className="mt-1 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-fg1 placeholder:text-fg-placeholder focus:border-accent focus:outline-none"
+              className="mt-1 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-fg1 placeholder:text-fg-placeholder focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
             />
             <p className="mt-1 text-xs text-fg3">We use this to prioritize jobs near you.</p>
 
             <label className="mt-4 block text-sm font-medium text-fg1">Zip code</label>
             <input
               defaultValue="9999"
-              className="mt-1 w-full rounded-lg border border-danger bg-surface px-3 py-2 text-sm text-fg1 focus:outline-none"
+              className="mt-1 w-full rounded-lg border border-danger bg-surface px-3 py-2 text-sm text-fg1 focus:outline-none focus:ring-2 focus:ring-danger/30"
             />
             <p className="mt-1 text-xs text-danger">Zip must be 5 digits.</p>
           </div>

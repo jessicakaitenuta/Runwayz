@@ -35,8 +35,17 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>
       <body className="flex min-h-full flex-col">
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-accent-contrast"
+        >
+          Skip to content
+        </a>
         <SiteHeader />
-        <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
+        <main
+          id="content"
+          className="mx-auto w-full max-w-6xl flex-1 px-6 py-12"
+        >
           {children}
         </main>
         <SiteFooter />

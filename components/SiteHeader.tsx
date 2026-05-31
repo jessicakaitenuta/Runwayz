@@ -6,7 +6,13 @@ import { SERVE_GROUPS } from "@/lib/nav";
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center" aria-label="Runwayz home">
+    <Link
+      href="/"
+      // -my-4 py-4 expands the hit area to the full header height (the nav has
+      // py-4), so the entire logo region is consistently clickable.
+      className="-my-4 flex items-center py-4 pr-3"
+      aria-label="Runwayz home"
+    >
       {/* eslint-disable @next/next/no-img-element */}
       <img
         src="/brand/runwayz-logo-light.svg"
@@ -72,6 +78,7 @@ export function SiteHeader() {
               className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-fg2 hover:text-fg1"
               onClick={() => setMegaOpen((o) => !o)}
               aria-expanded={megaOpen}
+              aria-haspopup="true"
             >
               Who we serve
               <svg
