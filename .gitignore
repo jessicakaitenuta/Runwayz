@@ -52,3 +52,5 @@ next-env.d.ts
 resources_screenshots/
 assets/img/Hero Image.png
 assets/img/Hero.png
+.gstack/
+assets/img/partner_logos/

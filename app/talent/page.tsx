@@ -5,7 +5,7 @@ export const metadata = { title: "Talent · Runwayz" };
 export default function TalentPage() {
   return (
     <AudiencePage
-      eyebrow="For workers & job seekers"
+      eyebrow="Early-Career Talent"
       title="A clearer path to better work."
       subtitle="Discover training, earn credentials, and find jobs — surfaced through the union, program, or school you already belong to."
       ctaLabel="Get started"

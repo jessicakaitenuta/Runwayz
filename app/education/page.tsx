@@ -1,10 +1,12 @@
 import { AudiencePage } from "@/components/AudiencePage";
+import { ServeCTA } from "@/components/ServeCTA";
 
 export const metadata = { title: "Institutions & Schools · Runwayz" };
 
 export default function EducationPage() {
   return (
-    <AudiencePage
+    <>
+      <AudiencePage
       eyebrow="Education"
       title="Get your learners credentialed and placed."
       subtitle="Connect your programs to real career pathways and employer demand, so graduates move directly into opportunity."
@@ -13,6 +15,8 @@ export default function EducationPage() {
         { title: "Employer demand", body: "Plug learners into a live network of opportunities." },
         { title: "Placement proof", body: "Show outcomes that matter to learners and funders." },
       ]}
-    />
+      />
+      <ServeCTA />
+    </>
   );
 }

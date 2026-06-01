@@ -16,8 +16,7 @@ export default function ContactPage() {
       </p>
 
       <div className="mt-10 max-w-xl">
-        {/* Swap in the real HubSpot form ID and set NEXT_PUBLIC_HUBSPOT_PORTAL_ID. */}
-        <HubSpotForm formId="REPLACE_WITH_HUBSPOT_FORM_ID" />
+        <HubSpotForm formId="158fa7a6-83ac-4a3c-b458-b018d7a5aa73" />
       </div>
     </div>
   );

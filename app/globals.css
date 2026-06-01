@@ -100,6 +100,22 @@ body {
     font-weight: 500;
     letter-spacing: -0.01em;
   }
+
+  /* XL Headline — homepage hero H1 variant, ~25% larger than the primary H1
+     (2.7rem → 3.6rem). Does NOT affect the primary H1 used on other pages. */
+  .headline-xl {
+    font-size: 3.375rem; /* 54px = 2.7rem × 1.25 */
+    line-height: 1.03;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* XL Headline responsive bump — outside @layer so it reliably wins at ≥640px. */
+@media (min-width: 640px) {
+  .headline-xl {
+    font-size: 4.5rem; /* 72px = 3.6rem × 1.25 */
+  }
 }
 
 /* Consistent, branded, accessible keyboard focus indicator (WCAG 2.4.7). */
@@ -108,6 +124,16 @@ body {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 3px;
+  }
+
+  /* Tailwind v4 leaves buttons with the default arrow cursor — restore the
+     pointer for all interactive elements. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="tab"],
+  summary,
+  a[href] {
+    cursor: pointer;
   }
 }
 

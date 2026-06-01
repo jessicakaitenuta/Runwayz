@@ -171,7 +171,7 @@ export default function StyleGuidePage() {
       <Section
         n="04"
         title="Poster accents"
-        desc="Decorative — one per composition. Lives in the chip, never as a card border stripe."
+        desc="Decorative accent colors for marketing and UI."
       >
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
           {POSTER_ACCENTS.map((a) => (
@@ -232,6 +232,10 @@ export default function StyleGuidePage() {
               display.
             </p>
             <div className="mt-6 space-y-6">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">XL Headline · .headline-xl · homepage hero (3.375 → 4.5rem)</p>
+                <p className="headline-xl text-fg1">Find your path.</p>
+              </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.16em] text-fg3">Display · 700 · -0.02em</p>
                 <p className="text-5xl font-bold tracking-tight text-fg1">Build something real.</p>

@@ -1,63 +1,39 @@
-'use client'
+"use client";
 
-import { useEffect, useId } from 'react'
-import { hubspotPortalId } from '@/sanity/env'
+import { useEffect } from "react";
 
-declare global {
-  interface Window {
-    hbspt?: { forms: { create: (opts: Record<string, unknown>) => void } }
-  }
-}
+// Runwayz HubSpot portal. The newer embed loads one per-portal script, then
+// auto-renders any `.hs-form-frame` divs (and watches for new ones on client
+// navigation).
+const DEFAULT_PORTAL_ID = "44941133";
 
 type Props = {
-  formId: string
-  portalId?: string
-  region?: string
-}
+  formId: string;
+  portalId?: string;
+  region?: string;
+};
 
-const SCRIPT_SRC = 'https://js.hsforms.net/forms/embed/v2.js'
-
-/**
- * Embeds a HubSpot form anywhere — marketing pages or inside blog/case-study
- * bodies. Loads the HubSpot script once and renders the form into a target div.
- */
-export function HubSpotForm({ formId, portalId, region = 'na1' }: Props) {
-  const targetId = `hubspot-form-${useId().replace(/:/g, '')}`
-  const resolvedPortalId = portalId || hubspotPortalId
-
+export function HubSpotForm({
+  formId,
+  portalId = DEFAULT_PORTAL_ID,
+  region = "na1",
+}: Props) {
   useEffect(() => {
-    if (!resolvedPortalId || !formId) return
-
-    function createForm() {
-      window.hbspt?.forms.create({
-        portalId: resolvedPortalId,
-        formId,
-        region,
-        target: `#${targetId}`,
-      })
+    const src = `https://js.hsforms.net/forms/embed/${portalId}.js`;
+    if (!document.querySelector(`script[src="${src}"]`)) {
+      const script = document.createElement("script");
+      script.src = src;
+      script.defer = true;
+      document.body.appendChild(script);
     }
+  }, [portalId]);
 
-    const existing = document.querySelector<HTMLScriptElement>(`script[src="${SCRIPT_SRC}"]`)
-    if (existing && window.hbspt) {
-      createForm()
-      return
-    }
-
-    const script = existing ?? document.createElement('script')
-    script.src = SCRIPT_SRC
-    script.addEventListener('load', createForm)
-    if (!existing) document.body.appendChild(script)
-
-    return () => script.removeEventListener('load', createForm)
-  }, [formId, resolvedPortalId, region, targetId])
-
-  if (!resolvedPortalId) {
-    return (
-      <div className="rounded-lg border border-dashed border-border p-4 text-sm text-fg3">
-        HubSpot form <code>{formId}</code> — set <code>NEXT_PUBLIC_HUBSPOT_PORTAL_ID</code> to render it.
-      </div>
-    )
-  }
-
-  return <div id={targetId} />
+  return (
+    <div
+      className="hs-form-frame"
+      data-region={region}
+      data-form-id={formId}
+      data-portal-id={portalId}
+    />
+  );
 }

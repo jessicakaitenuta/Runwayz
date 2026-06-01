@@ -4,6 +4,18 @@ import { SERVE_GROUPS } from "@/lib/nav";
 
 const SEGMENTS = SERVE_GROUPS.flatMap((g) => g.items);
 
+// Partner logos render on white chips so full-color logos stay legible in both
+// light and dark mode. Add more by giving a partner a `logo` path.
+const PARTNERS: { name: string; logo: string }[] = [
+  { name: "United Brotherhood of Carpenters", logo: "/brand/partners/carpenters-union.png" },
+  { name: "Chemical Coaters Association International", logo: "/brand/partners/chemical-coaters.png" },
+  { name: "NCCTE", logo: "/brand/partners/nccte.png" },
+  { name: "San Antonio", logo: "/brand/partners/san-antonio.png" },
+  { name: "Build Chicago", logo: "/brand/partners/build-chicago.png" },
+  { name: "Howard County", logo: "/brand/partners/howard-county.png" },
+  { name: "Chicago Hope Academy", logo: "/brand/partners/chicago-hope-academy.png" },
+];
+
 export default function Home() {
   return (
     <div>
@@ -28,7 +40,7 @@ export default function Home() {
         <div className="relative z-[2] flex w-full flex-col">
           <div className="mx-auto w-full max-w-6xl px-6 pb-28 pt-20 sm:pt-28">
             <div className="max-w-2xl [text-shadow:0_1px_18px_rgba(0,0,0,0.55)]">
-              <h1 className="text-[2.7rem] font-bold tracking-tight text-[#F5ECD7] sm:text-[3.6rem]">
+              <h1 className="headline-xl text-[#F5ECD7]">
                 Find your path.
                 <br />
                 Build your future.
@@ -97,6 +109,29 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Featured partners — full-bleed row; logos on white chips so they stay
+          bright in dark mode. Sized ~30% larger than the default chip. */}
+      <section className="relative left-1/2 w-screen -translate-x-1/2 py-12">
+        <p className="text-center text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">
+          Featured partners
+        </p>
+        <div className="mx-auto mt-6 flex max-w-7xl flex-wrap items-center justify-center gap-5 px-6">
+          {PARTNERS.map((p) => (
+            <div
+              key={p.logo}
+              className="flex h-28 w-60 items-center justify-center rounded-xl border border-border bg-white p-5"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={p.logo}
+                alt={p.name}
+                className="max-h-[4.5rem] w-auto object-contain"
+              />
+            </div>
+          ))}
         </div>
       </section>
     </div>

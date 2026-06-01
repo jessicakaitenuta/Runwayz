@@ -1,10 +1,12 @@
 import { AudiencePage } from "@/components/AudiencePage";
+import { ServeCTA } from "@/components/ServeCTA";
 
 export const metadata = { title: "Workforce Boards · Runwayz" };
 
 export default function WorkforceBoardsPage() {
   return (
-    <AudiencePage
+    <>
+      <AudiencePage
       eyebrow="Public & Labor Sector"
       title="Hit your placement and outcome goals."
       subtitle="Connect job seekers to training and employment, and capture the data you need to report on outcomes and funding."
@@ -13,6 +15,8 @@ export default function WorkforceBoardsPage() {
         { title: "Reporting built in", body: "Outcome data ready for funders and compliance." },
         { title: "Regional fit", body: "Aligned to the employers and skills in your area." },
       ]}
-    />
+      />
+      <ServeCTA />
+    </>
   );
 }

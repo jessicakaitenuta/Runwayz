@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { SERVE_GROUPS } from "@/lib/nav";
+import { MEGA_LEFT, MEGA_RIGHT, MEGA_GROUPS } from "@/lib/nav";
+
+type Group = {
+  heading: string;
+  items: { label: string; href: string; desc: string }[];
+};
 
 function Logo() {
   return (
@@ -14,18 +19,32 @@ function Logo() {
       aria-label="Runwayz home"
     >
       {/* eslint-disable @next/next/no-img-element */}
-      <img
-        src="/brand/runwayz-logo-light.svg"
-        alt="Runwayz"
-        className="h-7 w-auto dark:hidden"
-      />
-      <img
-        src="/brand/runwayz-logo-dark.svg"
-        alt="Runwayz"
-        className="hidden h-7 w-auto dark:block"
-      />
+      <img src="/brand/runwayz-logo-light.svg" alt="Runwayz" className="h-7 w-auto dark:hidden" />
+      <img src="/brand/runwayz-logo-dark.svg" alt="Runwayz" className="hidden h-7 w-auto dark:block" />
       {/* eslint-enable @next/next/no-img-element */}
     </Link>
+  );
+}
+
+function MenuGroup({ group, onNavigate }: { group: Group; onNavigate: () => void }) {
+  return (
+    <div>
+      <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-fg3">{group.heading}</p>
+      <ul className="space-y-1">
+        {group.items.map((it) => (
+          <li key={it.href}>
+            <Link
+              href={it.href}
+              className="block rounded-lg px-3 py-2 hover:bg-raised"
+              onClick={onNavigate}
+            >
+              <span className="block text-sm font-medium text-fg1">{it.label}</span>
+              <span className="block text-xs text-fg3">{it.desc}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -61,11 +80,11 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-1 md:flex" ref={wrapRef}>
-          <Link
-            href="/talent"
-            className="rounded-md px-3 py-2 text-sm text-fg2 hover:text-fg1"
-          >
-            Talent
+          <Link href="/platform" className="rounded-md px-3 py-2 text-sm text-fg2 hover:text-fg1">
+            Platform
+          </Link>
+          <Link href="/talent" className="rounded-md px-3 py-2 text-sm text-fg2 hover:text-fg1">
+            For Talent
           </Link>
 
           <div
@@ -97,32 +116,17 @@ export function SiteHeader() {
 
             {megaOpen && (
               <div className="absolute left-1/2 top-full z-50 w-[34rem] -translate-x-1/2 pt-3">
-                <div className="grid grid-cols-2 gap-x-8 gap-y-6 rounded-2xl border border-border bg-surface p-6 shadow-xl">
-                  {SERVE_GROUPS.map((g) => (
-                    <div key={g.heading}>
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-fg3">
-                        {g.heading}
-                      </p>
-                      <ul className="space-y-1">
-                        {g.items.map((it) => (
-                          <li key={it.href}>
-                            <Link
-                              href={it.href}
-                              className="block rounded-lg px-3 py-2 hover:bg-raised"
-                              onClick={() => setMegaOpen(false)}
-                            >
-                              <span className="block text-sm font-medium text-fg1">
-                                {it.label}
-                              </span>
-                              <span className="block text-xs text-fg3">
-                                {it.desc}
-                              </span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                <div className="grid grid-cols-2 gap-x-8 rounded-2xl border border-border bg-surface p-6 shadow-xl">
+                  <div className="space-y-6">
+                    {MEGA_LEFT.map((g) => (
+                      <MenuGroup key={g.heading} group={g} onNavigate={() => setMegaOpen(false)} />
+                    ))}
+                  </div>
+                  <div className="space-y-6">
+                    {MEGA_RIGHT.map((g) => (
+                      <MenuGroup key={g.heading} group={g} onNavigate={() => setMegaOpen(false)} />
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
@@ -144,13 +148,7 @@ export function SiteHeader() {
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
-            <svg
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
+            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path
                 d={mobileOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
                 strokeLinecap="round"
@@ -164,18 +162,15 @@ export function SiteHeader() {
       {mobileOpen && (
         <div className="border-t border-border md:hidden">
           <div className="space-y-4 px-6 py-4">
-            <Link
-              href="/talent"
-              className="block text-sm font-medium text-fg1"
-              onClick={() => setMobileOpen(false)}
-            >
-              Talent
+            <Link href="/platform" className="block text-sm font-medium text-fg1" onClick={() => setMobileOpen(false)}>
+              Platform
             </Link>
-            {SERVE_GROUPS.map((g) => (
+            <Link href="/talent" className="block text-sm font-medium text-fg1" onClick={() => setMobileOpen(false)}>
+              For Talent
+            </Link>
+            {MEGA_GROUPS.map((g) => (
               <div key={g.heading}>
-                <p className="text-xs font-semibold uppercase tracking-wider text-fg3">
-                  {g.heading}
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-fg3">{g.heading}</p>
                 <ul className="mt-1 space-y-1">
                   {g.items.map((it) => (
                     <li key={it.href}>
