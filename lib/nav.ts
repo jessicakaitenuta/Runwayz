@@ -4,9 +4,10 @@
 const PUBLIC_LABOR = {
   heading: "Public & Labor Sector",
   items: [
-    { label: "Unions", href: "/unions", desc: "Grow membership & apprenticeship intake" },
+    { label: "Trade Unions", href: "/unions", desc: "Grow membership & apprenticeship intake" },
     { label: "Associations", href: "/associations", desc: "A talent pipeline for your members" },
-    { label: "Workforce Boards", href: "/workforce-boards", desc: "Hit your placement outcomes" },
+    // Hidden for now (route still exists at /workforce-boards):
+    // { label: "Workforce Boards", href: "/workforce-boards", desc: "Hit your placement outcomes" },
   ],
 };
 

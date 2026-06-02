@@ -191,7 +191,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             href="/talent"
             className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
@@ -199,7 +199,7 @@ export default function Home() {
             Get Runwayz
           </Link>
           <a
-            href="https://platform.runwayz.com"
+            href="https://platform.runwayz.com/talent/signup"
             className="rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg1 hover:bg-raised"
           >
             Take the Career Quiz
@@ -246,7 +246,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <p className="text-fg2">Interested in supercharging your recruiting?</p>
           <Link
             href="/contact"
@@ -270,7 +270,7 @@ export default function Home() {
           them maximize their lifetime income and quality of life, and
           systematically help them close the gaps to advance.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <Link
             href="/contact"
             className="inline-block rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg1 hover:bg-raised"

@@ -86,7 +86,7 @@ export default function TalentPage() {
       </p>
       <div className="mt-8">
         <Link
-          href="/contact"
+          href="https://platform.runwayz.com/talent/signup"
           className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
         >
           Get started
@@ -136,9 +136,9 @@ export default function TalentPage() {
             ))}
           </div>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <a
-            href="https://platform.runwayz.com"
+            href="https://platform.runwayz.com/talent/signup"
             className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
           >
             Take the quiz
@@ -188,9 +188,9 @@ export default function TalentPage() {
           Explore what interests you, build skills that last, and take real steps
           toward work worth doing.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <Link
-            href="/contact"
+            href="https://platform.runwayz.com/talent/signup"
             className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
           >
             Get started

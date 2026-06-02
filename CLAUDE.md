@@ -26,6 +26,14 @@ perfectly to our classes — translate them to the canonical tokens.
 keeps its width cap** (e.g. `max-w-3xl`), and **body copy stays readability-
 capped** (`max-w-2xl`). Apply this to every top-level content page/template.
 
+**Rule 4 — CTA alignment.** CTA buttons are **horizontally centered** in the
+layout (wrap the button/CTA row in `flex justify-center`). The **only exception
+is CTAs inside the hero section** of a page, which stay **left-aligned**.
+
+**Rule 5 — copy verbatim, no em dashes.** When the user provides copy, use it
+**word-for-word** — do not rewrite, restructure, or "improve" it. Never use em
+dashes (—) in site copy.
+
 # Standard content-page template (DECIDED — build pending design)
 
 All top-level pages **except the homepage** (talent, employers, workforce-boards,

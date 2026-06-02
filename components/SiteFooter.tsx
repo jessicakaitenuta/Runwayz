@@ -5,9 +5,9 @@ const COLUMNS = [
   {
     heading: "Who we serve",
     links: [
-      { label: "Unions", href: "/unions" },
+      { label: "Trade Unions", href: "/unions" },
       { label: "Associations", href: "/associations" },
-      { label: "Workforce Boards", href: "/workforce-boards" },
+      // { label: "Workforce Boards", href: "/workforce-boards" }, // hidden for now
       { label: "Employers", href: "/employers" },
       { label: "Institutions & Schools", href: "/education" },
     ],
