@@ -8,14 +8,17 @@ const SEGMENTS = SERVE_GROUPS.flatMap((g) => g.items);
 const TALENT_STEPS = [
   {
     title: "See your Potential",
+    subhead: "Career matchmaker and explorer",
     body: "Not sure what careers are right for you? Runwayz helps you explore and refine your self-understanding through our Career Matchmaker (swipe right on careers you like), and see personalized recommendations on good fits.",
   },
   {
     title: "Believe your Potential",
+    subhead: "Guided profile development",
     body: "See the gaps you'd need to close to get a job in a field you're interested in; get help finding good certification providers and guidance on how to proceed; build your profile up to have the strongest possible application.",
   },
   {
     title: "Achieve your Potential",
+    subhead: "Apply to Opportunities",
     body: "Apply, get opportunities: apprenticeships, internships, jobs, and union memberships. Keep advancing certifications and skills to level up.",
   },
 ];
@@ -189,6 +192,7 @@ export default function Home() {
           {TALENT_STEPS.map((s) => (
             <div key={s.title} className="rounded-2xl border border-border bg-surface p-6">
               <h3 className="text-lg font-bold tracking-tight text-fg1">{s.title}</h3>
+              <p className="mt-1 text-sm font-semibold text-accent">{s.subhead}</p>
               <p className="mt-2 text-sm leading-[1.55] text-fg2">{s.body}</p>
             </div>
           ))}

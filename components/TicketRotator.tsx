@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Boarding-pass "ticket" graphic — rotates through a few real-feeling outcomes.
-// Always white (even in dark mode), with a Runwayz-blue header + a tear
-// perforation under the job title.
+// Always white (even in dark mode), Runwayz-blue header, and REAL side notches:
+// they're masked out of the card shape, and the shadow follows the notched
+// outline via filter: drop-shadow (so it reads as a torn ticket, not circles
+// stacked on top).
 const TICKETS = [
   { name: "Susan M.", career: "Carpentry", income: "$150K / yr", city: "Chicago, IL" },
   { name: "Marcus T.", career: "Electrician", income: "$98K / yr", city: "Houston, TX" },
@@ -12,9 +14,15 @@ const TICKETS = [
   { name: "Priya S.", career: "HVAC Tech", income: "$92K / yr", city: "Phoenix, AZ" },
 ];
 
+const R = 11; // notch radius (px)
+
 export function TicketRotator() {
   const [active, setActive] = useState(0);
   const [show, setShow] = useState(true);
+  const [perfY, setPerfY] = useState<number | null>(null);
+
+  const cardRef = useRef<HTMLDivElement>(null);
+  const perfRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -27,59 +35,89 @@ export function TicketRotator() {
     return () => clearInterval(id);
   }, []);
 
+  // Measure the perforation's vertical center so the notch mask lines up with it.
+  useEffect(() => {
+    const measure = () => {
+      if (cardRef.current && perfRef.current) {
+        const c = cardRef.current.getBoundingClientRect();
+        const p = perfRef.current.getBoundingClientRect();
+        setPerfY(p.top + p.height / 2 - c.top);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
   const t = TICKETS[active];
 
+  const maskValue =
+    perfY == null
+      ? undefined
+      : `radial-gradient(circle ${R}px at left ${perfY}px, transparent ${R}px, #000 ${R + 0.5}px), radial-gradient(circle ${R}px at right ${perfY}px, transparent ${R}px, #000 ${R + 0.5}px)`;
+
+  const cardStyle = maskValue
+    ? ({
+        maskImage: maskValue,
+        WebkitMaskImage: maskValue,
+        maskComposite: "intersect",
+        WebkitMaskComposite: "source-in",
+      } as React.CSSProperties)
+    : undefined;
+
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-black/5">
-      {/* Blue header — smooth edge, Runwayz mark */}
-      <div className="flex items-center justify-between bg-[#1E88D6] px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.16em] text-white">
-        <span>Runwayz · Boarding Pass</span>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/runwayz-icon-dark.svg" alt="" className="h-5 w-auto" />
-      </div>
-
-      {/* Body */}
-      <div className="px-6 pb-6 pt-5">
-        <div
-          className={`transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0"}`}
-          aria-live="polite"
-        >
-          <p className="text-[11px] uppercase tracking-wider text-gray-400">Passenger</p>
-          <p className="text-lg font-bold text-gray-900">{t.name}</p>
-
-          <p className="mt-4 text-[11px] uppercase tracking-wider text-gray-400">Now boarding</p>
-          <p className="text-3xl font-bold tracking-tight text-[#14609F]">{t.career}</p>
+    <div className="[filter:drop-shadow(0_14px_28px_rgba(0,0,0,0.16))]">
+      <div
+        ref={cardRef}
+        style={cardStyle}
+        className="overflow-hidden rounded-2xl bg-white"
+      >
+        {/* Blue header */}
+        <div className="flex items-center justify-between bg-[#1E88D6] px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+          <span>Runwayz · Boarding Pass</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/runwayz-icon-dark.svg" alt="" className="h-5 w-auto" />
         </div>
 
-        {/* Tear perforation (replaces the divider under the job title) */}
-        <div className="relative my-5 -mx-6">
-          <div className="border-t-2 border-dashed border-gray-200" />
-          <span className="absolute -left-2.5 top-0 h-5 w-5 -translate-y-1/2 rounded-full bg-page" />
-          <span className="absolute -right-2.5 top-0 h-5 w-5 -translate-y-1/2 rounded-full bg-page" />
-        </div>
+        {/* Body */}
+        <div className="px-6 pb-6 pt-5">
+          <div
+            className={`transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0"}`}
+            aria-live="polite"
+          >
+            <p className="text-[11px] uppercase tracking-wider text-gray-400">Passenger</p>
+            <p className="text-lg font-bold text-gray-900">{t.name}</p>
 
-        <div
-          className={`transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0"}`}
-        >
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-[11px] uppercase tracking-wider text-gray-400">Income</p>
-              <p className="font-semibold text-gray-900">{t.income}</p>
-            </div>
-            <div>
-              <p className="text-[11px] uppercase tracking-wider text-gray-400">Based in</p>
-              <p className="font-semibold text-gray-900">{t.city}</p>
+            <p className="mt-4 text-[11px] uppercase tracking-wider text-gray-400">Now boarding</p>
+            <p className="text-3xl font-bold tracking-tight text-[#14609F]">{t.career}</p>
+          </div>
+
+          {/* Tear perforation (notches are masked into the card at this line) */}
+          <div ref={perfRef} className="my-5 -mx-6 border-t-2 border-dashed border-gray-200" />
+
+          <div
+            className={`transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0"}`}
+          >
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <p className="text-[11px] uppercase tracking-wider text-gray-400">Income</p>
+                <p className="font-semibold text-gray-900">{t.income}</p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-wider text-gray-400">Based in</p>
+                <p className="font-semibold text-gray-900">{t.city}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-5 flex gap-1.5">
-          {TICKETS.map((_, i) => (
-            <span
-              key={i}
-              className={`h-1.5 rounded-full transition-all ${i === active ? "w-5 bg-[#1E88D6]" : "w-1.5 bg-gray-200"}`}
-            />
-          ))}
+          <div className="mt-5 flex gap-1.5">
+            {TICKETS.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 rounded-full transition-all ${i === active ? "w-5 bg-[#1E88D6]" : "w-1.5 bg-gray-200"}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
