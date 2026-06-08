@@ -84,10 +84,10 @@ export default function StyleGuidePage() {
       <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">
         Living brand book
       </p>
-      <h1 className="mt-3 text-[2.7rem] font-bold tracking-tight text-fg1 sm:text-[3.6rem]">
+      <h1 className="mt-3 max-w-4xl text-[2.7rem] font-bold tracking-tight text-fg1 sm:text-[3.6rem]">
         Runwayz style guide
       </h1>
-      <p className="mt-4 max-w-2xl text-lg leading-[1.55] text-fg2">
+      <p className="mt-4 max-w-3xl text-lg leading-[1.55] text-fg2">
         Every token, type style, and component — rendered live. Color rows show
         both modes side by side; everything else follows the current mode (toggle
         is in the footer). Built on the Art Deco v2 design tokens.

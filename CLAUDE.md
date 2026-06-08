@@ -23,8 +23,10 @@ perfectly to our classes — translate them to the canonical tokens.
 
 **Rule 3 — content headline width.** On content pages, **section headlines
 (`<h2>`) span the full content width** — no `max-w-*` cap. The page **`<h1>`
-keeps its width cap** (e.g. `max-w-3xl`), and **body copy stays readability-
-capped** (`max-w-2xl`). Apply this to every top-level content page/template.
+keeps its width cap** (`max-w-4xl`), and **body copy / subheadings are capped at
+`max-w-3xl`** (~2/3 of the `max-w-6xl` content column — wide enough that headings
+don't wrap early, still readable). Apply this to every top-level content
+page/template.
 
 **Rule 4 — CTA alignment.** CTA buttons are **horizontally centered** in the
 layout (wrap the button/CTA row in `flex justify-center`). The **only exception

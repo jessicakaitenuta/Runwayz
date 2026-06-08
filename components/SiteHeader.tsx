@@ -80,9 +80,11 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-1 md:flex" ref={wrapRef}>
+          {/* Platform hidden for now — pages still live at /platform, restore link when ready
           <Link href="/platform" className="rounded-md px-3 py-2 text-sm text-fg2 hover:text-fg1">
             Platform
           </Link>
+          */}
           <Link href="/talent" className="rounded-md px-3 py-2 text-sm text-fg2 hover:text-fg1">
             For Talent
           </Link>
@@ -162,9 +164,11 @@ export function SiteHeader() {
       {mobileOpen && (
         <div className="border-t border-border md:hidden">
           <div className="space-y-4 px-6 py-4">
+            {/* Platform hidden for now — pages still live at /platform, restore link when ready
             <Link href="/platform" className="block text-sm font-medium text-fg1" onClick={() => setMobileOpen(false)}>
               Platform
             </Link>
+            */}
             <Link href="/talent" className="block text-sm font-medium text-fg1" onClick={() => setMobileOpen(false)}>
               For Talent
             </Link>

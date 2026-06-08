@@ -71,26 +71,35 @@ export default function TalentPage() {
         Early-Career Talent
       </p>
       <h1 className="mt-4 max-w-4xl text-[2.7rem] font-bold tracking-tight text-fg1 sm:text-[3.6rem]">
-        We know the future feels uncertain. But your future doesn&apos;t have
-        to be.
+        We know the future feels uncertain. But{" "}
+        <span className="text-accent">your</span>{" "}
+        future doesn&apos;t have to.
       </h1>
-      <p className="subheading mt-6 max-w-2xl text-fg1">
-        Build for the life you want, not just the job you want.
+      <p className="subheading mt-6 max-w-3xl text-fg1">
+        Runwayz helps you build a future-proof career and maximize your earning
+        potential, to help you achieve the life you want.
       </p>
       <p className="mt-4 max-w-3xl text-lg leading-[1.55] text-fg2">
         If you&apos;re just starting your career, Runwayz helps you identify
         professional pathways with high earning potential and technical skills
-        that stay durable and resilient to AI-driven job disruption; build your
-        profile and skills to be a strong match for those roles; and connect
-        with real-world opportunities to access them.
+        that are likely to be resilient to AI-driven job disruption. Runwayz
+        helps you build your profile and develop skills to make you a strong
+        match for those roles; and then connects with real-world opportunities in
+        your preferred fields.
       </p>
-      <div className="mt-8">
-        <Link
-          href="https://platform.runwayz.com/talent/signup"
-          className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
+      <div className="mt-8 flex flex-wrap gap-4">
+        <a
+          href="https://platform.runwayz.com/talent/signup?step=form"
+          className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
         >
-          Get started
-        </Link>
+          Create an account
+        </a>
+        <a
+          href="https://platform.runwayz.com/talent/signup"
+          className="rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg1 hover:bg-raised"
+        >
+          Take the Careers Quiz
+        </a>
       </div>
 
       {/* Name the fear → what Runwayz prioritizes */}
@@ -99,7 +108,7 @@ export default function TalentPage() {
           It was always hard to answer the question, &ldquo;What do you want to
           be when you grow up?&rdquo; Now, it&apos;s even harder.
         </h2>
-        <div className="mt-4 max-w-2xl space-y-4 text-fg2">
+        <div className="mt-4 max-w-3xl space-y-4 text-fg2">
           <p>
             With the rise of AI, you might be wondering whether the jobs
             you&apos;re interested in will even be there in ten years. Exploring
@@ -152,7 +161,7 @@ export default function TalentPage() {
           Runwayz is your partner at every step of your professional journey,
           helping you increase your earning potential and job security.
         </h2>
-        <p className="mt-4 max-w-2xl text-fg2">
+        <p className="mt-4 max-w-3xl text-fg2">
           You don&apos;t pick a career on day one. You start exploring, build as
           you go, and keep leveling up — for as long as you&apos;re working.
         </p>
@@ -184,7 +193,7 @@ export default function TalentPage() {
         <h2 className="text-3xl font-bold tracking-tight text-fg1">
           You don&apos;t need it all figured out. You just need to start.
         </h2>
-        <p className="mt-4 max-w-2xl text-fg2">
+        <p className="mt-4 max-w-3xl text-fg2">
           Explore what interests you, build skills that last, and take real steps
           toward work worth doing.
         </p>

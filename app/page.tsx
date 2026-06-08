@@ -203,7 +203,7 @@ export default function Home() {
             href="/talent"
             className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
           >
-            Get Runwayz
+            Runwayz for Talent
           </Link>
           <a
             href="https://platform.runwayz.com/talent/signup"
@@ -220,9 +220,8 @@ export default function Home() {
           For Partners
         </p>
         <h2 className="mt-4 text-3xl font-bold tracking-tight text-fg1 sm:text-4xl">
-          Runwayz partners with trade unions, trade associations, and employers
-          in fields that provide future-proof careers for workers to help you
-          recruit.
+          A member growth and workforce pipeline platform that helps unions and
+          trade associations recruit, nurture, convert, and retain members.
         </h2>
         <p className="mt-4 max-w-2xl text-fg2">
           Let Runwayz help you recruit the next generation of talent to join your

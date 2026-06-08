@@ -82,10 +82,10 @@ export default function AssociationsPage() {
     <div className="py-8">
       {/* Hero */}
       <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">For trade associations</p>
-      <h1 className="mt-4 max-w-3xl text-[2.7rem] font-bold tracking-tight text-fg1 sm:text-[3.6rem]">
+      <h1 className="mt-4 max-w-4xl text-[2.7rem] font-bold tracking-tight text-fg1 sm:text-[3.6rem]">
         The talent pipeline your members can&apos;t build alone.
       </h1>
-      <p className="subheading mt-6 max-w-2xl text-fg2">
+      <p className="subheading mt-6 max-w-3xl text-fg2">
         Runwayz reaches early talent in the window before they drift — and routes them to the member
         companies you represent. A workforce solution your association can offer on day one.
       </p>
@@ -101,7 +101,7 @@ export default function AssociationsPage() {
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
           Your members are hiring against a tide they didn&apos;t create.
         </h2>
-        <div className="mt-4 max-w-2xl space-y-4 text-fg2">
+        <div className="mt-4 max-w-3xl space-y-4 text-fg2">
           <p>The trades are losing the early-career race before it starts. Young people get pulled into retail, gig work, and four-year degrees that don&apos;t pay off — while member companies wait for résumés that never arrive.</p>
           <p>Associations have the relationships. The training programs. The advocacy. What&apos;s missing is the engine that finds early talent before they drift, and routes them to the companies you represent.</p>
         </div>
@@ -128,7 +128,7 @@ export default function AssociationsPage() {
       {/* What your association gets */}
       <section className="mt-20 border-t border-border pt-12">
         <h2 className="text-3xl font-bold tracking-tight text-fg1">What your association gets: three things at once.</h2>
-        <p className="mt-4 max-w-2xl text-fg2">
+        <p className="mt-4 max-w-3xl text-fg2">
           Pipeline growth, member-side placement, and a tangible benefit you can show at your next
           board meeting — layered. Most partners give you one. We think you should have all three.
         </p>
@@ -149,7 +149,7 @@ export default function AssociationsPage() {
         <h2 className="text-3xl font-bold tracking-tight text-fg1">
           Who we deliver: early talent, caught in the window before they drift.
         </h2>
-        <p className="mt-4 max-w-2xl text-fg2">
+        <p className="mt-4 max-w-3xl text-fg2">
           Runwayz is built for the moment of choice. We meet candidates in high school, in their
           first year out, in their first job that isn&apos;t sticking — and pull them toward your
           industry.
@@ -172,7 +172,7 @@ export default function AssociationsPage() {
       <section className="mt-20 border-t border-border pt-12">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">Strategic partner pilot</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">An 18-month Strategic Partner pilot.</h2>
-        <div className="mt-4 max-w-2xl space-y-4 text-fg2">
+        <div className="mt-4 max-w-3xl space-y-4 text-fg2">
           <p>We&apos;re working with a small group of associations to prove out the model in 2026. The partnership is structured so your members carry no risk — and your association carries no implementation lift.</p>
           <p>One conversation. One MOU. A benefit you can announce to members the same week.</p>
         </div>

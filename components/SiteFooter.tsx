@@ -15,7 +15,7 @@ const COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "Platform", href: "/platform" },
+      // { label: "Platform", href: "/platform" }, // hidden for now — pages still live at /platform
       { label: "Talent", href: "/talent" },
       { label: "Get a demo", href: "/contact" },
     ],

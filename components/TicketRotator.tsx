@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 // Boarding-pass "ticket" graphic — rotates through a few real-feeling outcomes.
-// Always white (even in dark mode), Runwayz-blue header, and REAL side notches:
-// they're masked out of the card shape, and the shadow follows the notched
-// outline via filter: drop-shadow (so it reads as a torn ticket, not circles
-// stacked on top).
+// Always white (even in dark mode), Runwayz-blue header, and real side notches
+// masked out of the card shape.
 const TICKETS = [
   { name: "Susan M.", career: "Carpentry", income: "$150K / yr", city: "Chicago, IL" },
   { name: "Marcus T.", career: "Electrician", income: "$98K / yr", city: "Houston, TX" },
@@ -56,7 +54,7 @@ export function TicketRotator() {
       ? undefined
       : `radial-gradient(circle ${R}px at left ${perfY}px, transparent ${R}px, #000 ${R + 0.5}px), radial-gradient(circle ${R}px at right ${perfY}px, transparent ${R}px, #000 ${R + 0.5}px)`;
 
-  const cardStyle = maskValue
+  const maskStyle = maskValue
     ? ({
         maskImage: maskValue,
         WebkitMaskImage: maskValue,
@@ -66,11 +64,20 @@ export function TicketRotator() {
     : undefined;
 
   return (
-    <div className="[filter:drop-shadow(0_14px_28px_rgba(0,0,0,0.16))]">
+    <div className="relative">
+      {/* Static shadow layer — same notched shape, casts the drop-shadow. It has
+          no animating children, so the filter never re-rasterizes (no flicker). */}
+      <div
+        aria-hidden
+        style={maskStyle}
+        className="absolute inset-0 rounded-2xl bg-white [filter:drop-shadow(0_14px_28px_rgba(0,0,0,0.16))]"
+      />
+
+      {/* Card (no filter; mask gives it the notched shape) */}
       <div
         ref={cardRef}
-        style={cardStyle}
-        className="overflow-hidden rounded-2xl bg-white"
+        style={maskStyle}
+        className="relative overflow-hidden rounded-2xl bg-white"
       >
         {/* Blue header */}
         <div className="flex items-center justify-between bg-[#1E88D6] px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.16em] text-white">
