@@ -24,7 +24,7 @@ export function ServeCTA({
       <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">{heading}</h2>
       <p className="mt-3 max-w-3xl text-fg2">{body}</p>
       {note && <p className="mt-3 max-w-3xl text-fg2">{note}</p>}
-      <div className="mt-8 max-w-xl">
+      <div className="mx-auto mt-8 max-w-xl">
         <HubSpotForm formId={SERVE_FORM_ID} />
       </div>
     </section>

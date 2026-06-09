@@ -130,7 +130,7 @@ export default function UnionsPage() {
         <p className="mt-4 max-w-3xl text-fg2">
           Runwayz mirrors the path a person takes into a trade. Runwayz offers unions a single
           platform for connecting with people who have expressed an interest in learning about the
-          trade, measuring
+          trade.
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {LIFECYCLE.map((s) => (

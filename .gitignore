@@ -55,3 +55,13 @@ assets/img/Hero.png
 .gstack/
 assets/img/partner_logos/
 assets/img/Talent Hero.png
+
+# iStock comps. The cropped, watermark-hidden versions the Associations page uses
+# (associations.png hero, cc-quote.png quote bg) are DEPLOYED for a client preview —
+# replace with licensed purchases before real launch. Raw sources + the unused
+# cc.png crop stay ignored.
+public/brand/cc.png
+assets/img/CC.png
+assets/img/associations.png
+assets/img/talent_hero.png
+assets/img/talent_hero_gold.png

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = { title: "For Talent · Runwayz" };
 
@@ -65,42 +66,66 @@ const STAGES: Stage[] = [
 
 export default function TalentPage() {
   return (
-    <div className="py-8">
-      {/* Hero */}
-      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">
-        Early-Career Talent
-      </p>
-      <h1 className="mt-4 max-w-4xl text-[2.7rem] font-bold tracking-tight text-fg1 sm:text-[3.6rem]">
-        We know the future feels uncertain. But{" "}
-        <span className="text-accent">your</span>{" "}
-        future doesn&apos;t have to.
-      </h1>
-      <p className="subheading mt-6 max-w-3xl text-fg1">
-        Runwayz helps you build a future-proof career and maximize your earning
-        potential, to help you achieve the life you want.
-      </p>
-      <p className="mt-4 max-w-3xl text-lg leading-[1.55] text-fg2">
-        If you&apos;re just starting your career, Runwayz helps you identify
-        professional pathways with high earning potential and technical skills
-        that are likely to be resilient to AI-driven job disruption. Runwayz
-        helps you build your profile and develop skills to make you a strong
-        match for those roles; and then connects with real-world opportunities in
-        your preferred fields.
-      </p>
-      <div className="mt-8 flex flex-wrap gap-4">
-        <a
-          href="https://platform.runwayz.com/talent/signup?step=form"
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
-        >
-          Create an account
-        </a>
-        <a
-          href="https://platform.runwayz.com/talent/signup"
-          className="rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg1 hover:bg-raised"
-        >
-          Take the Careers Quiz
-        </a>
-      </div>
+    <div>
+      {/* Full-bleed image hero — same treatment as the homepage hero */}
+      <section className="relative left-1/2 -mt-12 w-screen -translate-x-1/2 overflow-hidden">
+        <Image
+          src="/brand/talent-hero-gold.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+        {/* Left scrim so the cream copy stays readable in light and dark mode */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-black/55 via-black/20 to-transparent"
+        />
+        {/* Shorter bottom fade into the page color (cream / midnight) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-2/5 bg-gradient-to-b from-page/0 to-page"
+        />
+        <div className="relative z-[2] mx-auto w-full max-w-6xl px-6 pb-28 pt-20 sm:pt-28">
+          <div className="max-w-3xl [text-shadow:0_1px_18px_rgba(0,0,0,0.55)]">
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F5ECD7]/90">
+              Early-Career Talent
+            </p>
+            <h1 className="mt-4 max-w-4xl text-[2.7rem] font-bold tracking-tight text-[#F5ECD7] sm:text-[3.6rem]">
+              We know the future feels uncertain. But{" "}
+              <span className="text-accent">your</span>{" "}
+              future doesn&apos;t have to.
+            </h1>
+            <p className="subheading mt-6 max-w-3xl text-[#F5ECD7]">
+              Runwayz helps you build a future-proof career and maximize your earning
+              potential, to help you achieve the life you want.
+            </p>
+            <p className="mt-4 max-w-3xl text-lg leading-[1.55] text-[#F5ECD7]/90">
+              If you&apos;re just starting your career, Runwayz helps you identify
+              professional pathways with high earning potential and technical skills
+              that are likely to be resilient to AI-driven job disruption. Runwayz
+              helps you build your profile and develop skills to make you a strong
+              match for those roles; and then connects with real-world opportunities in
+              your preferred fields.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4 [text-shadow:none]">
+              <a
+                href="https://platform.runwayz.com/talent/signup?step=form"
+                className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
+              >
+                Create an account
+              </a>
+              <a
+                href="https://platform.runwayz.com/talent/signup"
+                className="rounded-full border border-[#F5ECD7]/50 px-5 py-2.5 text-sm font-medium text-[#F5ECD7] hover:bg-white/10"
+              >
+                Take the Careers Quiz
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Name the fear → what Runwayz prioritizes */}
       <section className="mt-20 border-t border-border pt-12">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ServeCTA } from "@/components/ServeCTA";
 
 export const metadata = { title: "Associations · Runwayz" };
@@ -62,7 +63,7 @@ const PILLARS = [
     n: "01",
     title: "Pipeline expansion",
     lead: "Get more young people excited about the trade.",
-    body: "Runwayz helps to convert early potential interest in a trade or field, nurture that awareness through targeted content about the trade (including branded content from member organizations), and those interested individuals into trackable, engaged candidates whose first real exposure to the industry came through your association.",
+    body: "Runwayz helps to convert early potential interest in a trade or field, nurture that awareness through targeted content about the trade (including branded content from member organizations), and turn those interested individuals into trackable, engaged candidates whose first real exposure to the industry came through your association.",
   },
   {
     n: "02",
@@ -84,7 +85,7 @@ const GETS = [
     body: "Build your branded page to recruit new regional member companies, and promote your current member companies associated with your Association to new talent.",
   },
   {
-    title: "A 6-month complimentary trial for any member company members",
+    title: "A 6-month complimentary trial for any member company",
     body: "Member companies can build a profile, post opportunities, and track interested Talent.",
   },
   {
@@ -97,34 +98,54 @@ const GETS = [
   },
   {
     title: "Dedicated partner success team",
-    body: "Your association gets one dedicated point of contact at Runwayz to help you get the most of out of the partnership.",
+    body: "Your association gets one dedicated point of contact at Runwayz to help you get the most out of the partnership.",
   },
 ];
 
 export default function AssociationsPage() {
   return (
-    <div className="py-8">
-      {/* Hero */}
-      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">For trade associations</p>
-      <h1 className="mt-4 max-w-4xl text-[2.7rem] font-bold tracking-tight text-fg1 sm:text-[3.6rem]">
-        The talent pipeline your members can&apos;t build alone.
-      </h1>
-      <p className="subheading mt-6 max-w-3xl text-fg2">
-        Runwayz helps your association engage early-career talent in your trade, and matches the
-        strongest candidates to opportunities at your member companies.
-      </p>
-      <div className="mt-8">
-        <Link href="/contact" className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90">
-          Get in touch
-        </Link>
-      </div>
+    <div>
+      {/* Full-bleed image hero — same treatment as the homepage hero */}
+      <section className="relative left-1/2 -mt-12 w-screen -translate-x-1/2 overflow-hidden">
+        <Image
+          src="/brand/associations.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/2 bg-gradient-to-b from-page/0 to-page"
+        />
+        <div className="relative z-[2] mx-auto min-h-[420px] w-full max-w-6xl px-6 pb-28 pt-20 sm:min-h-[620px] sm:pt-28">
+          <div className="max-w-3xl [text-shadow:0_1px_18px_rgba(0,0,0,0.55)]">
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F5ECD7]/90">
+              For trade associations
+            </p>
+            <h1 className="mt-4 max-w-4xl text-[2.7rem] font-bold tracking-tight text-[#F5ECD7] sm:text-[3.6rem]">
+              The talent pipeline your members can&apos;t build alone.
+            </h1>
+            <p className="subheading mt-6 max-w-3xl text-[#F5ECD7]">
+              Runwayz helps your association engage early-career talent in your trade, and matches
+              the strongest candidates to opportunities at your member companies.
+            </p>
+            <div className="mt-8 [text-shadow:none]">
+              <Link href="/contact" className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90">
+                Get in touch
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* The shortage */}
-      <section className="mt-20 border-t border-border pt-12">
+      <section className="mt-12">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">The shortage</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
-          Trade Association&apos;s member companies are facing hiring headwinds that have been
-          growing for the past two decades.
+          Hiring headwinds that impact your member companies also impact the growth and success of
+          your association.
         </h2>
         <dl className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s) => (
@@ -155,14 +176,15 @@ export default function AssociationsPage() {
       <section className="mt-20 border-t border-border pt-12">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">The Runwayz solution</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
-          Runwayz helps your member companies engage, nurture, and recruit talent into their
-          company, with unparalleled visibility to ROI.
+          Runwayz helps your members engage, nurture, and recruit talent, with unparalleled
+          visibility into ROI.
         </h2>
         <div className="mt-4 max-w-3xl space-y-4 text-fg2">
           <p>
             Runwayz enables Trade Associations to offer your member companies a strong pipeline of
-            early-career talent who are interested in their trade, where your member companies can
-            reach them, engage with them, and promote opportunities.
+            early-career talent who are interested in their trade. On Runwayz, members can reach and
+            engage people who have expressed interest in the trade, and promote opportunities to them
+            for training and job placements.
           </p>
           <p>
             Runwayz allows each of your member companies to build a brand presence on the platform,
@@ -210,32 +232,65 @@ export default function AssociationsPage() {
         </div>
       </section>
 
-      {/* Pull quote — CCAI (awaiting copy) */}
-      <section className="mt-20 border-t border-border pt-12">
-        <figure className="mx-auto max-w-3xl text-center">
-          <blockquote className="text-2xl font-medium tracking-tight text-fg1 sm:text-3xl">
-            [ pull quote ]
-          </blockquote>
-          <figcaption className="mt-4 text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">
-            CCAI
-          </figcaption>
-        </figure>
+      {/* Pull quote — CCAI, full-bleed with background image */}
+      <section className="relative left-1/2 mt-20 w-screen -translate-x-1/2 overflow-hidden">
+        <Image src="/brand/cc-quote.png" alt="" fill sizes="100vw" className="object-cover object-center" />
+        <div aria-hidden className="absolute inset-0 bg-black/55" />
+        <div className="relative z-[1] mx-auto max-w-4xl px-6 py-24 text-center sm:py-32">
+          <figure className="[text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
+            <blockquote className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              &ldquo;By working with Runwayz, we are helping to introduce a new generation to careers
+              in finishing and coating while giving our members new tools to engage with future
+              talent.&rdquo;
+            </blockquote>
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <Image
+                src="/brand/anne-goyer.jpg"
+                alt="Anne Goyer"
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-white/30 [text-shadow:none]"
+              />
+              <figcaption className="text-left text-sm text-white/90">
+                <span className="block font-semibold text-white">Anne Goyer</span>
+                Executive Director, The Chemical Coaters Association International (CCAI)
+              </figcaption>
+            </div>
+            <a
+              href="https://www.ccaiweb.com/news/720331/CCAI-Announces-Workforce-Development-Partnership-with-Runwayz.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block text-sm font-medium text-white underline underline-offset-2 hover:text-white/80 [text-shadow:none]"
+            >
+              Read the announcement
+            </a>
+          </figure>
+        </div>
       </section>
 
       {/* Partner with Runwayz */}
-      <section className="mt-20 border-t border-border pt-12">
+      <section className="mt-16">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">Strategic partner pilot</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">Partner with Runwayz</h2>
-        <div className="mt-4 max-w-3xl space-y-4 text-fg2">
-          <p>Adopt Runwayz as a Trade Association to grow your member companies. Sign up for our 18-month strategic partner pilot program.</p>
-          <p>Though partnership with Runwayz, your association gains a benefit you can announce to your member companies the same week you sign with Runwayz.</p>
-        </div>
+        <p className="subheading mt-4 max-w-3xl text-fg2">
+          Adopt Runwayz as a Trade Association to grow your member companies. Sign up for our
+          18-month strategic partner pilot program.
+        </p>
+        <p className="mt-4 max-w-3xl text-fg2">
+          Through partnership with Runwayz, your association gains a benefit you can announce to your
+          member companies the same week you sign with Runwayz.
+        </p>
 
         <h3 className="mt-10 text-xl font-bold tracking-tight text-fg1">Your association gets</h3>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {GETS.map((g) => (
             <div key={g.title} className="rounded-2xl border border-border bg-surface p-6">
-              <h4 className="font-bold text-fg1">{g.title}</h4>
+              <div className="flex items-start gap-2.5">
+                <svg className="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                  <path fillRule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4l3.1 3.1 6.8-6.8a1 1 0 011.4 0z" clipRule="evenodd" />
+                </svg>
+                <h4 className="font-bold text-fg1">{g.title}</h4>
+              </div>
               <p className="mt-2 text-sm text-fg2">{g.body}</p>
             </div>
           ))}
