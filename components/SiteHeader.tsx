@@ -149,6 +149,7 @@ export function SiteHeader() {
             className="rounded-md p-2 text-fg2"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path

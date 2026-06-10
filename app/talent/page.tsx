@@ -5,13 +5,14 @@ import { RecommendedCareers } from "@/components/RecommendedCareers";
 
 export const metadata = { title: "For Talent · Runwayz" };
 
-type Stage = { n: string; state: string; name: string; lead: string; bullets: string[] };
+type Stage = { n: string; state: string; name: string; lead: string; bullets: string[]; img: string };
 
 const STAGES: Stage[] = [
   {
     n: "01",
     state: "Interested",
     name: "Discover Pathways",
+    img: "/brand/stage-interest.png",
     lead: "There's a wide world of possible career paths — likely some you've never thought of. Runwayz helps you explore them all.",
     bullets: [
       "Browse and explore career paths you may never have heard of.",
@@ -23,6 +24,7 @@ const STAGES: Stage[] = [
     n: "02",
     state: "Pursuing",
     name: "Strengthen your Skills",
+    img: "/brand/stage-pursue.png",
     lead: "Runwayz shows you the steps between where you are today and where you'd need to be to land a job in a specific path — and helps you close the gap, systematically.",
     bullets: [
       "See the required certifications, education, and requirements for each role.",
@@ -35,6 +37,7 @@ const STAGES: Stage[] = [
     n: "03",
     state: "Advancing",
     name: "Gain Real Experience",
+    img: "/brand/stage-apply.png",
     lead: "Once you've found a path you want to explore more deeply, Runwayz helps you take the first step — connecting you with jobs and apprenticeships directly in the platform.",
     bullets: [
       "Find and apply to real, active opportunities in your desired career paths.",
@@ -134,10 +137,10 @@ export default function TalentPage() {
           Runwayz is your partner at every step of your professional journey,
           helping you increase your earning potential and job security.
         </h2>
-        <div className="mt-12 space-y-12">
+        <div className="mt-12 space-y-20">
           {STAGES.map((s, idx) => (
-            <div key={s.n} className="grid items-center gap-8 md:grid-cols-2">
-              <div className={idx % 2 === 1 ? "md:order-2" : undefined}>
+            <div key={s.n} className="grid items-center gap-10 md:grid-cols-5">
+              <div className={`md:col-span-2 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-bold text-accent">{s.n}</span>
                   <span className="rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-accent">
@@ -156,39 +159,41 @@ export default function TalentPage() {
                   </ul>
                 </div>
               </div>
-              {/* Grey placeholder for a platform screenshot */}
-              <div
-                className={`flex aspect-[16/10] items-center justify-center rounded-2xl border border-border bg-fg3/10 text-sm font-medium text-fg3 ${
-                  idx % 2 === 1 ? "md:order-1" : ""
-                }`}
-              >
-                Platform screenshot
-              </div>
+              {/* Platform screenshot for this stage */}
+              <Image
+                src={s.img}
+                alt={`Runwayz ${s.name} screen`}
+                width={1200}
+                height={793}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className={`w-full md:col-span-3 ${idx % 2 === 1 ? "md:order-1" : ""}`}
+              />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Pull quote — placeholder, same treatment as the Associations quote */}
+      {/* Pull quote — Devyn Maguire, CEO */}
       <section className="relative left-1/2 mt-20 w-screen -translate-x-1/2 overflow-hidden">
         <Image src="/brand/talent-pullquote.png" alt="" fill sizes="100vw" className="object-cover object-center" />
         <div aria-hidden className="absolute inset-0 bg-black/55" />
         <div className="relative z-[1] mx-auto max-w-4xl px-6 py-24 text-center sm:py-32">
           <figure className="[text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
             <blockquote className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              &ldquo;[ Pull quote goes here: a short, punchy line from a Runwayz user about finding
-              their path. ]&rdquo;
+              &ldquo;We want Runwayz to help every person to find the career path that fits their
+              interests and maximizes their lifetime earnings.&rdquo;
             </blockquote>
             <div className="mt-8 flex items-center justify-center gap-4">
-              <div
-                aria-hidden
-                className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 text-[10px] font-medium uppercase tracking-wide text-white/80 ring-2 ring-white/30 [text-shadow:none]"
-              >
-                Photo
-              </div>
+              <Image
+                src="/brand/devyn.jpg"
+                alt="Devyn Maguire"
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-white/30 [text-shadow:none]"
+              />
               <figcaption className="text-left text-sm text-white/90">
-                <span className="block font-semibold text-white">First Last</span>
-                Title, Organization
+                <span className="block font-semibold text-white">Devyn Maguire</span>
+                CEO, Runwayz
               </figcaption>
             </div>
           </figure>

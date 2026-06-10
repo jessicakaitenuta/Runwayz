@@ -247,7 +247,7 @@ export default function Home() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {SPOTLIGHTS.map((s) => (
             <div key={s.name} className="rounded-2xl bg-[#1f2430] p-6 dark:bg-surface dark:ring-1 dark:ring-border sm:p-8">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/55">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/70">
                 Partner Spotlight
               </p>
               <div className="mt-4 inline-flex items-center justify-center rounded-lg bg-white p-3">

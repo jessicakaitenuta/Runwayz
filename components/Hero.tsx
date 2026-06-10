@@ -14,10 +14,12 @@ type HeroProps = {
   scrim?: Scrim;
 };
 
+// Scrims strengthen on lg+ (where the copy sits directly over the image; below
+// lg the subhead/CTA are in the frosted panel). `none` still gets a desktop wash.
 const SCRIM: Record<Scrim, string> = {
-  none: "",
-  dark: "bg-gradient-to-r from-black/55 via-black/20 to-transparent",
-  warm: "bg-gradient-to-r from-[#e17248]/55 via-[#e17248]/15 to-transparent",
+  none: "lg:bg-gradient-to-r lg:from-black/45 lg:via-black/15 lg:to-transparent",
+  dark: "bg-gradient-to-r from-black/55 via-black/20 to-transparent lg:from-black/65 lg:via-black/30",
+  warm: "bg-gradient-to-r from-[#e17248]/55 via-[#e17248]/15 to-transparent lg:from-[#e17248]/70 lg:via-[#e17248]/25",
 };
 
 // Shared hero for every top-level page. One source of truth for text widths,
@@ -41,9 +43,7 @@ export function Hero({ eyebrow, title, subtitle, children, image, scrim = "none"
   return (
     <section className="relative left-1/2 -mt-12 w-screen -translate-x-1/2 overflow-hidden">
       <Image src={image} alt="" fill priority sizes="100vw" className="object-cover object-top" />
-      {scrim !== "none" ? (
-        <div aria-hidden className={`pointer-events-none absolute inset-0 z-[1] ${SCRIM[scrim]}`} />
-      ) : null}
+      <div aria-hidden className={`pointer-events-none absolute inset-0 z-[1] ${SCRIM[scrim]}`} />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/2 bg-gradient-to-b from-page/0 to-page"

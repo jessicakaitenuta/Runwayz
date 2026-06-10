@@ -172,6 +172,7 @@ export default function UnionsPage() {
                 className="mt-3 inline-block text-xs text-fg3 underline underline-offset-2 hover:text-fg2"
               >
                 Source: Midwest Economic Policy Institute (via IBEW)
+                <span className="sr-only"> (opens in new tab)</span>
               </a>
             </div>
             <div>
@@ -257,6 +258,7 @@ export default function UnionsPage() {
                   className="mt-3 inline-block text-xs text-fg3 underline underline-offset-2 hover:text-fg2"
                 >
                   Source: {s.source.label}
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               )}
             </div>

@@ -136,6 +136,7 @@ export default function AssociationsPage() {
                   className="mt-3 inline-block text-xs text-fg3 underline underline-offset-2 hover:text-fg2"
                 >
                   Source: {s.source.label}
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               )}
             </div>
@@ -239,6 +240,7 @@ export default function AssociationsPage() {
               className="mt-5 inline-block text-sm font-medium text-white underline underline-offset-2 hover:text-white/80 [text-shadow:none]"
             >
               Read the announcement
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </figure>
         </div>

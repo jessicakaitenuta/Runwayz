@@ -29,7 +29,7 @@ export function ThemeToggle({ subtle = false }: { subtle?: boolean }) {
       title="Toggle dark mode"
       className={
         subtle
-          ? "rounded p-1 text-fg3/60 transition-colors hover:text-fg2"
+          ? "rounded p-1 text-fg2 transition-colors hover:text-fg1"
           : "rounded-full border border-border p-2 text-fg2 hover:bg-raised"
       }
     >

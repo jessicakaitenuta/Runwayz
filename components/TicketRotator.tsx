@@ -17,12 +17,18 @@ const R = 11; // notch radius (px)
 export function TicketRotator() {
   const [active, setActive] = useState(0);
   const [show, setShow] = useState(true);
+  const [paused, setPaused] = useState(false);
   const [perfY, setPerfY] = useState<number | null>(null);
 
   const cardRef = useRef<HTMLDivElement>(null);
   const perfRef = useRef<HTMLDivElement>(null);
 
+  // Auto-rotate, but never for reduced-motion users, and pause on hover/focus.
   useEffect(() => {
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || paused) return;
     const id = setInterval(() => {
       setShow(false);
       setTimeout(() => {
@@ -31,7 +37,7 @@ export function TicketRotator() {
       }, 300);
     }, 3800);
     return () => clearInterval(id);
-  }, []);
+  }, [paused]);
 
   // Measure the perforation's vertical center so the notch mask lines up with it.
   useEffect(() => {
@@ -64,7 +70,13 @@ export function TicketRotator() {
     : undefined;
 
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
       {/* Static shadow layer — same notched shape, casts the drop-shadow. It has
           no animating children, so the filter never re-rasterizes (no flicker). */}
       <div
@@ -90,7 +102,6 @@ export function TicketRotator() {
         <div className="px-6 pb-6 pt-5">
           <div
             className={`transition-opacity duration-300 ${show ? "opacity-100" : "opacity-0"}`}
-            aria-live="polite"
           >
             <p className="text-[11px] uppercase tracking-wider text-gray-400">Passenger</p>
             <p className="text-lg font-bold text-gray-900">{t.name}</p>
