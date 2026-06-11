@@ -23,12 +23,9 @@ export function TicketRotator() {
   const cardRef = useRef<HTMLDivElement>(null);
   const perfRef = useRef<HTMLDivElement>(null);
 
-  // Auto-rotate, but never for reduced-motion users, and pause on hover/focus.
+  // Auto-rotate; pause on hover/focus.
   useEffect(() => {
-    const reduce =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || paused) return;
+    if (paused) return;
     const id = setInterval(() => {
       setShow(false);
       setTimeout(() => {

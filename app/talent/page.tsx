@@ -134,8 +134,7 @@ export default function TalentPage() {
       {/* Four stages */}
       <section className="mt-20 border-t border-border pt-12">
         <h2 className="text-3xl font-bold tracking-tight text-fg1">
-          Runwayz is your partner at every step of your professional journey,
-          helping you increase your earning potential and job security.
+          Runwayz is your partner at every step of your professional journey.
         </h2>
         <div className="mt-12 space-y-20">
           {STAGES.map((s, idx) => (
