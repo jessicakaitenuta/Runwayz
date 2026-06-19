@@ -51,8 +51,7 @@ export function SiteFooter() {
               {/* eslint-enable @next/next/no-img-element */}
             </Link>
             <p className="mt-3 max-w-xs text-sm text-fg3">
-              Connecting talent to opportunity through the organizations they
-              already trust.
+              From Liftoff to Landing
             </p>
           </div>
           {COLUMNS.map((col) => (
@@ -76,7 +75,7 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="mt-10 flex items-center justify-between border-t border-border pt-6 text-sm text-fg3">
-          <span>© 2026 Runwayz · Built with Next.js + Sanity</span>
+          <span>© 2026 Runwayz</span>
           <div className="flex items-center gap-1">
             {/* Discreet link to the living brand book */}
             <Link

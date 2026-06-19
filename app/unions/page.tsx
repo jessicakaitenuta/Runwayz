@@ -56,32 +56,29 @@ const LIFECYCLE = [
   },
 ];
 
-type Feature = { title: string; items: string[]; sub?: { title: string; body: string }[] };
+type Feature = { title: string; img: string; items: string[]; sub?: { title: string; body: string }[] };
 
 // Grouped into logical feature cards. Card titles are editorial labels; the body
 // copy under each is verbatim from the user's draft.
 const FEATURES: Feature[] = [
   {
-    title: "Your branded presence",
+    title: "Build your branded presence",
+    img: "/brand/union-feature-1.png",
     items: [
       "A whitelabeled, branded page for your Union; promoted to people looking at your Trade on Runwayz.",
     ],
   },
   {
-    title: "Content and marketing",
+    title: "View and Search Interested Talent",
+    img: "/brand/union-feature-2.png",
     items: [
-      "A marketing platform for sharing content produced by your union, which is shared to the feeds of everyone who indicated they are “Interested” in or “Pursuing” your trade.",
-      "A collaborative marketing partner that helps your union produce compelling “day in the life” content that helps to prepare potential members to really understand what it’s like to work in the trade before they apply (reducing the 90-day churn rate from apprenticeship programs).",
-    ],
-  },
-  {
-    title: "Engagement analytics",
-    items: [
-      "Full visibility into engagements with your content, your brand, and your trade. Track the number of people Interested in and Pursuing your trade, and track interactions with your organization’s content.",
+      "See everyone who has expressed interest in your trade, and search and filter them by skills, certifications, location, and readiness to find the people closest to joining.",
+      "Open full candidate profiles, with project portfolios and verified work-based learning hours, so you know exactly who you are reaching out to before you do.",
     ],
   },
   {
     title: "Opportunities and recruiting",
+    img: "/brand/union-feature-3.png",
     items: [
       "Ability to post “Opportunities” for both open Roles and Training Apprenticeships, with two options for collecting applicants:",
     ],
@@ -172,61 +169,82 @@ export default function UnionsPage() {
           ))}
         </div>
 
-        {/* Measure ROI — DRAFT copy with researched figures; edit freely */}
-        <div className="mt-10 rounded-2xl border border-border bg-surface p-6 sm:p-8">
-          <h3 className="text-xl font-bold tracking-tight text-fg1">Measure ROI</h3>
-          <p className="mt-3 max-w-3xl text-fg2">
-            Most unions cannot say what a new member costs to recruit, or where their best members
-            came from. Runwayz attributes every member back to the source, so growth becomes a number
-            you can defend instead of a guess. And the math is hard to argue with: a union
-            construction member pays an average of $1,381 a year in dues and fees, and over a 30-year
-            career that is more than $40,000 in lifetime dues from a single member. Recruit even a
-            small class each year, with proof of where they came from, and the return compounds for
-            decades.
-          </p>
-          <dl className="mt-8 grid gap-6 sm:grid-cols-3">
-            <div>
-              <dt className="text-4xl font-bold tracking-tight text-accent">$1,381</dt>
-              <dd className="mt-2 text-sm text-fg2">
-                Average annual dues and fees paid by a union construction member.
-              </dd>
-              <a
-                href="https://ibew.org/does-it-pay-to-work-union-yes-and-heres-proof/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block text-xs text-fg3 underline underline-offset-2 hover:text-fg2"
-              >
-                Source: Midwest Economic Policy Institute (via IBEW)
-                <span className="sr-only"> (opens in new tab)</span>
-              </a>
-            </div>
-            <div>
-              <dt className="text-4xl font-bold tracking-tight text-accent">30+ yrs</dt>
-              <dd className="mt-2 text-sm text-fg2">
-                A skilled-trades career, from apprenticeship through retirement.
-              </dd>
-            </div>
-            <div>
-              <dt className="text-4xl font-bold tracking-tight text-accent">$40K+</dt>
-              <dd className="mt-2 text-sm text-fg2">
-                Lifetime dues value of a single member, attributed to its source by Runwayz.
-              </dd>
-            </div>
-          </dl>
-        </div>
+        {/* Measure ROI — editorial callout: figures set over a heavily-overlaid
+            image so the section reads as a differentiated, cited data panel. */}
+        <figure className="relative mt-10 overflow-hidden rounded-3xl ring-1 ring-inset ring-[#F5ECD7]/10">
+          <Image
+            src="/brand/trade-unions-crew.png"
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            className="scale-150 object-cover object-center"
+          />
+          {/* Heavy brand-ink overlay (not pure black) + vignette for editorial depth. */}
+          <div aria-hidden className="absolute inset-0 bg-[#141a28]/88" />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-br from-[#141a28]/70 via-transparent to-[#141a28]/80"
+          />
+
+          <div className="relative z-[1] p-7 [text-shadow:0_1px_18px_rgba(20,26,40,0.7)] sm:p-10 lg:p-12">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#F5ECD7]/65">
+              The membership math
+            </p>
+            <h3 className="mt-3 text-2xl font-bold tracking-tight text-[#F5ECD7] sm:text-3xl">
+              Measure ROI
+            </h3>
+            <p className="mt-4 max-w-2xl text-[#F5ECD7]/85">
+              Most unions cannot say what a new member costs to recruit, or where their best members
+              came from. Runwayz attributes every member back to the source, so growth becomes a number
+              you can defend instead of a guess. And the math is hard to argue with: a union
+              construction member pays an average of $1,381 a year in dues and fees, and over a 30-year
+              career that is more than $40,000 in lifetime dues from a single member. Recruit even a
+              small class each year, with proof of where they came from, and the return compounds for
+              decades.
+            </p>
+            <dl className="mt-10 grid gap-x-8 gap-y-8 border-t border-[#F5ECD7]/15 pt-8 sm:grid-cols-3">
+              <div>
+                <dt className="text-4xl font-bold tracking-tight text-[#F4A02C] sm:text-5xl">$1,381</dt>
+                <dd className="mt-2 text-sm text-[#F5ECD7]/80">
+                  Average annual dues and fees paid by a union construction member.
+                </dd>
+                <a
+                  href="https://ibew.org/does-it-pay-to-work-union-yes-and-heres-proof/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-xs text-[#F5ECD7]/55 underline underline-offset-2 hover:text-[#F5ECD7]/90 [text-shadow:none]"
+                >
+                  Source: Midwest Economic Policy Institute (via IBEW)
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+              </div>
+              <div>
+                <dt className="text-4xl font-bold tracking-tight text-[#F4A02C] sm:text-5xl">30+ yrs</dt>
+                <dd className="mt-2 text-sm text-[#F5ECD7]/80">
+                  A skilled-trades career, from apprenticeship through retirement.
+                </dd>
+              </div>
+              <div>
+                <dt className="text-4xl font-bold tracking-tight text-[#F4A02C] sm:text-5xl">$40K+</dt>
+                <dd className="mt-2 text-sm text-[#F5ECD7]/80">
+                  Lifetime dues value of a single member, attributed to its source by Runwayz.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </figure>
       </section>
 
       {/* How it works — Trade partners */}
       <section className="mt-20 border-t border-border pt-12">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">How it works</p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">Trade partners</h2>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">Be there the moment someone discovers your trade.</h2>
         <div className="mt-4 max-w-3xl space-y-4 text-fg2">
-          <p>Become a Runwayz partner to put your union&apos;s content in front of people who are exploring your trade.</p>
-          <p>Early-career talent on Runwayz can explore every trade (with our careers explorer, built on the O*Net careers data set). Turn that pool of curious explorers into a real membership pipeline for your union by becoming a partner.</p>
+          <p>Partner with Runwayz and your union shows up in front of every person exploring your trade, right when they are deciding what to do next.</p>
+          <p>Early-career talent come to Runwayz to explore every trade through our O*NET-powered career explorer. As a partner, you turn that stream of curious explorers into a real, growing membership pipeline for your union, instead of hoping they find you on their own.</p>
         </div>
 
-        <h3 className="mt-10 text-xl font-bold tracking-tight text-fg1">What you get</h3>
-        <div className="mt-8 space-y-12">
+        <div className="mt-10 space-y-12">
           {FEATURES.map((f, idx) => (
             <div key={f.title} className="grid items-center gap-8 md:grid-cols-2">
               <div className={idx % 2 === 1 ? "md:order-2" : undefined}>
@@ -247,14 +265,15 @@ export default function UnionsPage() {
                   </ul>
                 )}
               </div>
-              {/* Grey placeholder for a platform screenshot */}
-              <div
-                className={`flex aspect-[16/10] items-center justify-center rounded-2xl border border-border bg-fg3/10 text-sm font-medium text-fg3 ${
-                  idx % 2 === 1 ? "md:order-1" : ""
-                }`}
-              >
-                Platform screenshot
-              </div>
+              {/* Platform screenshot for this feature */}
+              <Image
+                src={f.img}
+                alt={`Runwayz ${f.title} screen`}
+                width={2139}
+                height={1411}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className={`w-full rounded-2xl border border-border ${idx % 2 === 1 ? "md:order-1" : ""}`}
+              />
             </div>
           ))}
         </div>

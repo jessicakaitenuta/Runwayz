@@ -54,7 +54,7 @@ export default function TalentPage() {
         image="/brand/talent-page-hero.png"
         scrim="warm"
         eyebrow="Early-Career Talent"
-        title="We know the future feels uncertain. But your future doesn't have to."
+        title={<>We know the future feels uncertain. But <em>your</em>&nbsp; future doesn&apos;t have to.</>}
         subtitle="Runwayz helps you build a future-proof career and maximize your earning potential, to help you achieve the life you want."
       >
         <div className="flex flex-wrap gap-4">

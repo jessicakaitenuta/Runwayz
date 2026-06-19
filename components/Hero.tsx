@@ -48,7 +48,7 @@ export function Hero({ eyebrow, title, subtitle, children, image, scrim = "none"
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/2 bg-gradient-to-b from-page/0 to-page"
       />
-      <div className="relative z-[2] mx-auto min-h-[520px] w-full max-w-6xl px-6 pb-28 pt-20 sm:min-h-[860px] sm:pt-28">
+      <div className="relative z-[2] mx-auto min-h-[520px] w-full max-w-6xl px-6 pb-28 pt-12 sm:min-h-[860px] sm:pt-20">
         <div className="max-w-3xl [text-shadow:0_1px_18px_rgba(0,0,0,0.55)]">
           <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#F5ECD7]/90">
             {eyebrow}

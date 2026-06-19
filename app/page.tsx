@@ -75,7 +75,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-2/3 bg-gradient-to-b from-page/0 to-page"
         />
         <div className="relative z-[2] flex w-full flex-col">
-          <div className="mx-auto w-full max-w-6xl px-6 pb-28 pt-20 sm:pt-28">
+          <div className="mx-auto w-full max-w-6xl px-6 pb-28 pt-12 sm:pt-20">
             <div className="max-w-2xl [text-shadow:0_1px_18px_rgba(0,0,0,0.55)]">
               <h1 className="headline-xl text-[#F5ECD7]">
                 Find your path.
@@ -277,26 +277,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="border-t border-border py-16">
-        <p className="text-fg3">Helping young professionals &ldquo;get a job&rdquo; isn&apos;t enough.</p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1 sm:text-4xl">
-          Our mission is to build the careers (and livelihoods) of a bright
-          future.
-        </h2>
-        <p className="mt-4 max-w-2xl text-fg2">
-          The Runwayz mission is to help early-career talent explore the wide
-          range of careers they could pursue, see the pathways that will help
-          them maximize their lifetime income and quality of life, and
-          systematically help them close the gaps to advance.
-        </p>
-        <div className="mt-8 flex justify-center">
-          <Link
-            href="/contact"
-            className="inline-block rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg1 hover:bg-raised"
-          >
-            Learn about the Runwayz Project
-          </Link>
+      {/* Mission — full-bleed closing band with image + overlay. -mb-28 cancels
+          the main container's pb-12 (48px) plus the footer's mt-16 (64px) so the
+          band sits flush against the footer. A top fade blends it into the page. */}
+      <section className="relative left-1/2 -mb-28 mt-16 w-screen -translate-x-1/2 overflow-hidden">
+        <Image src="/brand/talent-page-hero.png" alt="" fill sizes="100vw" className="object-cover object-[50%_35%]" />
+        {/* Warm overlay (not a cold black wash): a dark-amber base for legibility,
+            plus a terracotta glow that keeps the image feeling warm. */}
+        <div aria-hidden className="absolute inset-0 bg-[#3a1d10]/55" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-[#e17248]/25 via-transparent to-[#e17248]/20" />
+        {/* Long, gentle top fade so the band blends smoothly into the page. */}
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-56 bg-gradient-to-b from-page via-page/40 to-transparent sm:h-64" />
+        <div className="relative z-[1] mx-auto max-w-4xl px-6 pb-40 pt-64 text-center [text-shadow:0_1px_18px_rgba(40,20,12,0.6)] sm:pb-48 sm:pt-72">
+          <p className="text-[#F5ECD7]/80">Helping young professionals &ldquo;get a job&rdquo; isn&apos;t enough.</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F5ECD7] sm:text-4xl">
+            Our mission is to build the careers (and livelihoods) of a bright future.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-[#F5ECD7]/90">
+            The Runwayz mission is to help early-career talent explore the wide
+            range of careers they could pursue, see the pathways that will help
+            them maximize their lifetime income and quality of life, and
+            systematically help them close the gaps to advance.
+          </p>
+          <div className="mt-8 flex justify-center [text-shadow:none]">
+            <a
+              href="https://www.linkedin.com/company/runwayz-career/?viewAsMember=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full border border-[#F5ECD7]/40 bg-[#F5ECD7]/10 px-5 py-2.5 text-sm font-medium text-[#F5ECD7] backdrop-blur-sm transition hover:bg-[#F5ECD7]/20"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden>
+                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.76-1.75 1.76zm12.5 11.27h-3v-5.6c0-3.37-4-3.12-4 0v5.6h-3v-10h3v1.76c1.4-2.59 7-2.78 7 2.48v5.76z" />
+              </svg>
+              Follow along with our mission
+              <span className="sr-only"> on LinkedIn (opens in new tab)</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>
