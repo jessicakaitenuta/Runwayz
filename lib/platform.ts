@@ -28,7 +28,7 @@ export const PLATFORM: Audience[] = [
       {
         id: "career-exploration",
         title: "Career Exploration",
-        description: "Find the paths worth pursuing — and see exactly where you stand against them.",
+        description: "Find the paths worth pursuing, and see exactly where you stand against them.",
         features: [
           { id: "matchmaker", title: "Matchmaker", body: "Answer a few questions and get matched to career paths that fit your interests, strengths, and goals." },
           { id: "browse", title: "Browse career paths", body: "Explore real, in-demand career paths backed by O*NET occupational data." },
@@ -40,7 +40,7 @@ export const PLATFORM: Audience[] = [
       {
         id: "profile-development",
         title: "Profile Development",
-        description: "Build a profile that proves what you can do — and closes the gaps to your goals.",
+        description: "Build a profile that proves what you can do, and closes the gaps to your goals.",
         features: [
           { id: "guided", title: "Guided profile development", body: "Step-by-step guidance to build a profile that actually stands out to employers." },
           { id: "portfolio", title: "Project portfolio", body: "Showcase project-based work in a rich, visual portfolio." },
@@ -51,7 +51,7 @@ export const PLATFORM: Audience[] = [
       {
         id: "connect",
         title: "Connect with Opportunities",
-        description: "Get in front of employers, unions, and associations — early and often.",
+        description: "Get in front of employers, unions, and associations, early and often.",
         features: [
           { id: "apply", title: "Apply to open roles", body: "Apply directly to open positions from employers, unions, and associations." },
           { id: "tailored", title: "Tailored applications", comingSoon: true, body: "Build a custom profile for each application that surfaces your most relevant projects, experiences, and certifications." },
@@ -77,7 +77,7 @@ export const PLATFORM: Audience[] = [
       {
         id: "search-source",
         title: "Search & Source Talent",
-        description: "Find ready, verified talent — and dig into the details that matter.",
+        description: "Find ready, verified talent, and dig into the details that matter.",
         features: [
           { id: "filter", title: "Filter & search", body: "Search and filter talent by skills, certifications, location, readiness, and more." },
           { id: "profiles", title: "See full profiles", body: "View rich candidate profiles with portfolios and verified work-based learning." },

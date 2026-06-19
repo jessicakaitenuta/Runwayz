@@ -20,14 +20,14 @@ const COLUMNS = [
       { label: "Get a demo", href: "/contact" },
     ],
   },
-  {
-    // Case Studies + Blog live here for now — to be built out next.
-    heading: "Resources",
-    links: [
-      { label: "Case Studies", href: "/case-studies" },
-      { label: "Blog", href: "/blog" },
-    ],
-  },
+  // Resources (Case Studies + Blog) hidden for the pre-release; restore when ready.
+  // {
+  //   heading: "Resources",
+  //   links: [
+  //     { label: "Case Studies", href: "/case-studies" },
+  //     { label: "Blog", href: "/blog" },
+  //   ],
+  // },
 ];
 
 export function SiteFooter() {

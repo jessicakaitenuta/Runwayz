@@ -10,7 +10,7 @@ type Stat = { value: string; label: string; source?: { label: string; url: strin
 const STATS: Stat[] = [
   {
     value: "1.4M",
-    label: "Skilled trades jobs projected to go unfilled in the U.S. by 2030 — about 25% of key trades.",
+    label: "Skilled trades jobs projected to go unfilled in the U.S. by 2030, about 25% of key trades.",
     source: { label: "Bring Back The Trades", url: "https://bringbackthetrades.org/press-release/new-research-data-reveals-nearly-1-4-million-trades-jobs-25-to-be-open/" },
   },
   {
@@ -25,7 +25,7 @@ const STATS: Stat[] = [
   },
   {
     value: "$1.2T",
-    label: "Bipartisan Infrastructure Law investment — much of it needing skilled hands.",
+    label: "Bipartisan Infrastructure Law investment, much of it needing skilled hands.",
     source: { label: "IIJA / ASCE", url: "https://infrastructurereportcard.org/bipartisan-infrastructure-law-breakdown/" },
   },
 ];
@@ -51,8 +51,8 @@ const LIFECYCLE = [
   },
   {
     org: "Grow",
-    state: "Advancing",
-    action: "Recruit people who are Actively Working toward the field:",
+    state: "Active",
+    action: "Recruit people who are Active in your trade:",
     quote: "I'm ready to work; which companies are hiring?",
     lead: "Turn pursuers into hires at your member companies.",
     body: "Runwayz connects ready candidates to open roles at your member companies and tracks them through to placement. Every hire is attributed back to the source, so your association can prove the ROI Runwayz delivers for each member company.",
@@ -80,26 +80,79 @@ const PILLARS = [
   },
 ];
 
-const GETS = [
+type Feature = { title: string; items: string[]; sub?: { title: string; body: string }[] };
+
+// Feature cards for member-company hiring. Mirrors the Unions "What you get"
+// section, adapted from union members to association member companies.
+const FEATURES: Feature[] = [
   {
-    title: "A branded page for your association on Runwayz",
-    body: "Build your branded page to recruit new regional member companies, and promote your current member companies associated with your Association to new talent.",
+    title: "Your branded presence",
+    items: [
+      "A whitelabeled, branded page for your association and its member companies; promoted to people exploring your trade on Runwayz.",
+    ],
   },
   {
-    title: "A 6-month complimentary trial for any member company",
-    body: "Member companies can build a profile, post opportunities, and track interested Talent.",
+    title: "Content and marketing",
+    items: [
+      "A marketing platform for sharing content from your association and member companies, delivered to the feeds of everyone who indicated they are “Interested” in or “Pursuing” your trade.",
+      "A collaborative marketing partner that helps your members produce compelling “day in the life” content, so potential candidates understand what the trade is really like before they apply.",
+    ],
+  },
+  {
+    title: "Engagement analytics",
+    items: [
+      "Full visibility into engagements with your content, your members’ brands, and your trade. Track the number of people Interested in and Pursuing your trade, and each member company’s share of that pipeline.",
+    ],
+  },
+  {
+    title: "Opportunities and recruiting",
+    items: [
+      "Ability for member companies to post “Opportunities” for both open Roles and Training Programs, with two options for collecting applicants:",
+    ],
+    sub: [
+      {
+        title: "Open Now",
+        body: "For roles and training programs that are open immediately, post the opportunity as “Open Now”. Members review, sort, and filter applicants by requirement, and export easily out of Runwayz for their HR teams.",
+      },
+      {
+        title: "Talent Pools",
+        body: "Open a future opportunity to begin collecting applications from interested people before the role formally opens. Runwayz nurtures these leads without drawing on your members’ teams, and helps applicants see and close any gaps in their experience before the opportunity opens.",
+      },
+    ],
+  },
+];
+
+// Unified with the Unions "Your union gets" set: same 7 items, same order,
+// adapted from union members/locals to association member companies. Slot 5 is
+// the audience-specific item (Unions: Foundation cost removal; Associations: trial).
+const GETS = [
+  {
+    title: "A branded page for your association",
+    body: "Build your branded page to recruit new member companies, and promote your members and their training programs to new talent.",
+  },
+  {
+    title: "Co-designed rollout in your geography",
+    body: "You tell us where young people are, and we meet them there, in the regions and member companies where you need growth most.",
+  },
+  {
+    title: "Training and hiring pathways on the platform",
+    body: "Your member companies' open roles and training programs, made visible to the next generation.",
   },
   {
     title: "Co-branded recruitment campaigns",
-    body: "Your association's name leads to help funnel interested talent to appropriate training programs or regional member company opportunities.",
+    body: "Your association's name leads, helping funnel interested talent to your member companies and training programs.",
+  },
+  {
+    title: "A 6-month complimentary trial for any member company",
+    body: "Member companies can build a profile, post opportunities, and track interested talent.",
   },
   {
     title: "Quarterly pipeline reports",
-    body: "Full visibility into ROI on Runwayz: Track impressions, candidates, conversion data, placement outcomes.",
+    body: "Full visibility into ROI on Runwayz: track impressions, candidates, conversion, and placement outcomes.",
   },
   {
     title: "Dedicated partner success team",
-    body: "Your association gets one dedicated point of contact at Runwayz to help you get the most out of the partnership.",
+    body: "One dedicated point of contact at Runwayz to help your association get the most out of the partnership.",
   },
 ];
 
@@ -118,7 +171,7 @@ export default function AssociationsPage() {
       </Hero>
 
       {/* The shortage */}
-      <section className="mt-12">
+      <section className="mt-6">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">The shortage</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
           Hiring in the skilled trades has gotten harder, and it is impacting your member companies.
@@ -143,9 +196,9 @@ export default function AssociationsPage() {
           ))}
         </dl>
         <p className="mt-8 max-w-3xl text-fg2">
-          Trade Associations provide member companies with legitimacy, brand awareness, training
+          Trade Associations provide member companies with legitimacy, brand awareness, and training
           programs. But the success of Trade Associations depends on retaining and growing your
-          member companies; and their success depends on finding and hiring strong talent.
+          member companies, and their success depends on finding and hiring strong talent.
         </p>
       </section>
 
@@ -166,7 +219,7 @@ export default function AssociationsPage() {
           <p>
             Runwayz allows each of your member companies to build a brand presence on the platform,
             and track potential candidates through every stage of conversion, from
-            &ldquo;Interested&rdquo; to &ldquo;Pursuing&rdquo; to &ldquo;Actively Working,&rdquo;
+            &ldquo;Interested&rdquo; to &ldquo;Pursuing&rdquo; to &ldquo;Active,&rdquo;
             allowing them to measure ROI of the Runwayz channel for hiring. Associations can see
             metrics for all early-career talent interacting with your member companies on Runwayz,
             helping you to quantify ROI for each of your member companies.
@@ -185,6 +238,50 @@ export default function AssociationsPage() {
               <p className="mt-1 text-sm italic text-fg2">&ldquo;{s.quote}&rdquo;</p>
               <p className="mt-4 font-medium text-fg1">{s.lead}</p>
               <p className="mt-2 text-sm text-fg2">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How it works — feature/screenshot section, mirrored from Unions */}
+      <section className="mt-20 border-t border-border pt-12">
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">How it works</p>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">Member companies on Runwayz</h2>
+        <div className="mt-4 max-w-3xl space-y-4 text-fg2">
+          <p>Become a Runwayz partner to put your association and member companies in front of people who are exploring your trade.</p>
+          <p>Early-career talent on Runwayz can explore every trade (with our careers explorer, built on the O*Net careers data set). Turn that pool of curious explorers into a real hiring pipeline for your member companies by becoming a partner.</p>
+        </div>
+
+        <h3 className="mt-10 text-xl font-bold tracking-tight text-fg1">What you get</h3>
+        <div className="mt-8 space-y-12">
+          {FEATURES.map((f, idx) => (
+            <div key={f.title} className="grid items-center gap-8 md:grid-cols-2">
+              <div className={idx % 2 === 1 ? "md:order-2" : undefined}>
+                <h4 className="text-2xl font-bold tracking-tight text-fg1">{f.title}</h4>
+                <div className="mt-3 space-y-3 text-fg2">
+                  {f.items.map((it, i) => (
+                    <p key={i}>{it}</p>
+                  ))}
+                </div>
+                {f.sub && (
+                  <ul className="mt-4 space-y-3">
+                    {f.sub.map((s) => (
+                      <li key={s.title} className="rounded-lg bg-raised p-3">
+                        <p className="text-sm font-semibold text-fg1">{s.title}</p>
+                        <p className="mt-1 text-sm text-fg2">{s.body}</p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {/* Grey placeholder for a platform screenshot */}
+              <div
+                className={`flex aspect-[16/10] items-center justify-center rounded-2xl border border-border bg-fg3/10 text-sm font-medium text-fg3 ${
+                  idx % 2 === 1 ? "md:order-1" : ""
+                }`}
+              >
+                Platform screenshot
+              </div>
             </div>
           ))}
         </div>

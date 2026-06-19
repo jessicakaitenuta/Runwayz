@@ -62,7 +62,7 @@ export default function EducationPage() {
       </Hero>
 
       {/* For your students */}
-      <section className="mt-12">
+      <section className="mt-6">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">For your students</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
           From exploring careers to landing the first opportunity.

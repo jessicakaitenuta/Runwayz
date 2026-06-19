@@ -16,7 +16,7 @@ export default function PlatformLayout({
         One platform. Two sides of the same goal.
       </h1>
       <p className="subheading mt-5 max-w-2xl text-fg2">
-        Tools for talent to grow their careers — and for partners to find,
+        Tools for talent to grow their careers, and for partners to find,
         develop, and hire the talent they need.
       </p>
 

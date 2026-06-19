@@ -218,10 +218,10 @@ export default function Home() {
             Runwayz for Talent
           </Link>
           <a
-            href="https://platform.runwayz.com/talent/signup"
+            href="https://platform.runwayz.com/talent/signup?step=form"
             className="rounded-full border border-border px-5 py-2.5 text-sm font-medium text-fg1 hover:bg-raised"
           >
-            Take the Career Quiz
+            Create your Account
           </a>
         </div>
       </section>

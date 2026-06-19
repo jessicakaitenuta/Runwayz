@@ -13,7 +13,7 @@ const STAGES: Stage[] = [
     state: "Interested",
     name: "Discover Pathways",
     img: "/brand/stage-interest.png",
-    lead: "There's a wide world of possible career paths — likely some you've never thought of. Runwayz helps you explore them all.",
+    lead: "There's a wide world of possible career paths, likely some you've never thought of. Runwayz helps you explore them all.",
     bullets: [
       "Browse and explore career paths you may never have heard of.",
       "Build a profile around your interests, working style, and life goals.",
@@ -25,7 +25,7 @@ const STAGES: Stage[] = [
     state: "Pursuing",
     name: "Strengthen your Skills",
     img: "/brand/stage-pursue.png",
-    lead: "Runwayz shows you the steps between where you are today and where you'd need to be to land a job in a specific path — and helps you close the gap, systematically.",
+    lead: "Runwayz shows you the steps between where you are today and where you'd need to be to land a job in a specific path, and helps you close the gap, systematically.",
     bullets: [
       "See the required certifications, education, and requirements for each role.",
       "Build out your portfolio of projects (and get recommendations).",
@@ -35,13 +35,13 @@ const STAGES: Stage[] = [
   },
   {
     n: "03",
-    state: "Advancing",
+    state: "Active",
     name: "Gain Real Experience",
     img: "/brand/stage-apply.png",
-    lead: "Once you've found a path you want to explore more deeply, Runwayz helps you take the first step — connecting you with jobs and apprenticeships directly in the platform.",
+    lead: "Once you've found a path you want to explore more deeply, Runwayz helps you take the first step, connecting you with jobs and apprenticeships directly in the platform.",
     bullets: [
       "Find and apply to real, active opportunities in your desired career paths.",
-      "Join Early Access Talent Pools to show interest and see requirements before a role opens — and close any gaps early.",
+      "Join Early Access Talent Pools to show interest and see requirements before a role opens, and close any gaps early.",
       "Apply to our partner trade unions in the skilled trades, directly through Runwayz.",
     ],
   },
@@ -62,19 +62,13 @@ export default function TalentPage() {
             href="https://platform.runwayz.com/talent/signup?step=form"
             className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
           >
-            Create an account
-          </a>
-          <a
-            href="https://platform.runwayz.com/talent/signup"
-            className="rounded-full bg-[#e17248] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#e17248]/90"
-          >
-            Take the Careers Quiz
+            Create your Account
           </a>
         </div>
       </Hero>
 
       {/* The fear */}
-      <section className="mt-12">
+      <section className="mt-6">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">The challenge</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
           It was always hard to answer the question, &ldquo;What do you want to
@@ -106,7 +100,7 @@ export default function TalentPage() {
             professional pathways with high earning potential and technical skills that
             are likely to be resilient to AI-driven job disruption. Runwayz helps you
             build your profile and develop skills to make you a strong match for those
-            roles; and then connects with real-world opportunities in your preferred
+            roles, and then connects you with real-world opportunities in your preferred
             fields.
           </p>
           <p>
@@ -115,18 +109,12 @@ export default function TalentPage() {
           </p>
         </div>
         <RecommendedCareers className="mt-8" />
-        <div className="mt-8 flex flex-col items-center gap-3">
-          <a
-            href="https://platform.runwayz.com/talent/signup"
-            className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
-          >
-            Take the Career Explorer Quiz
-          </a>
+        <div className="mt-8 flex justify-center">
           <a
             href="https://platform.runwayz.com/talent/signup?step=form"
-            className="text-sm font-medium text-accent hover:underline"
+            className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
           >
-            Or sign up for an account to see open opportunities
+            Create your Account
           </a>
         </div>
       </section>
@@ -210,10 +198,10 @@ export default function TalentPage() {
         </p>
         <div className="mt-8 flex justify-center">
           <Link
-            href="https://platform.runwayz.com/talent/signup"
+            href="https://platform.runwayz.com/talent/signup?step=form"
             className="inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast hover:bg-accent/90"
           >
-            Get started
+            Create your Account
           </Link>
         </div>
       </section>

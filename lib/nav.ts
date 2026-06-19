@@ -21,7 +21,7 @@ const PRIVATE_SECTOR = {
 const EDUCATION = {
   heading: "Education",
   items: [
-    { label: "Institutions & Schools", href: "/education", desc: "Credential & place your learners" },
+    { label: "Institutions & Schools", href: "/education", desc: "Credential & place your students" },
   ],
 };
 

@@ -68,7 +68,7 @@ export default function EmployersPage() {
       </Hero>
 
       {/* The hiring gap */}
-      <section className="mt-12">
+      <section className="mt-6">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">The hiring gap</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
           A resume tells you where someone has been. It doesn&apos;t tell you who will show up.

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { ServeCTA } from "@/components/ServeCTA";
 
@@ -19,7 +20,7 @@ const STATS: Stat[] = [
   },
   {
     value: "$1.3M",
-    label: "Mean increase in lifetime earnings from a unionized career — more than completing college.",
+    label: "Mean increase in lifetime earnings from a unionized career, more than completing college.",
     source: { label: "U.S. DOL / ILR Review", url: "https://www.dol.gov/sites/dolgov/files/general/workcenter/Cumulative-Advantage-Unionized-Career-For-Lifetime-Earnings.pdf" },
   },
   {
@@ -47,8 +48,8 @@ const LIFECYCLE = [
   },
   {
     org: "Grow",
-    state: "Advancing",
-    action: "Convert people who are Ready for the field:",
+    state: "Active",
+    action: "Convert people who are Active in your trade:",
     quote: "I'm ready for a training apprenticeship pathway; where do I go from here?",
     lead: "Turn pursuers into active, dues-paying members.",
     body: "Runwayz connects ready candidates to your apprenticeship intake and your locals, then tracks them through to active membership. Every member is attributed back to the source, so you can finally prove how many new members Runwayz helped you recruit.",
@@ -69,7 +70,7 @@ const FEATURES: Feature[] = [
   {
     title: "Content and marketing",
     items: [
-      "A marketing platform for sharing content produced by your union, which are shared to the feeds of everyone who indicated they are “Interested” in or “Pursuing” your trade.",
+      "A marketing platform for sharing content produced by your union, which is shared to the feeds of everyone who indicated they are “Interested” in or “Pursuing” your trade.",
       "A collaborative marketing partner that helps your union produce compelling “day in the life” content that helps to prepare potential members to really understand what it’s like to work in the trade before they apply (reducing the 90-day churn rate from apprenticeship programs).",
     ],
   },
@@ -82,7 +83,7 @@ const FEATURES: Feature[] = [
   {
     title: "Opportunities and recruiting",
     items: [
-      "Ability to post “Opportunities” for both open Roles, Training Apprenticeships, with two options for collecting applicants:",
+      "Ability to post “Opportunities” for both open Roles and Training Apprenticeships, with two options for collecting applicants:",
     ],
     sub: [
       {
@@ -97,11 +98,35 @@ const FEATURES: Feature[] = [
   },
 ];
 
-const PARTNERSHIP = [
-  { title: "Co-designed rollout in your geography", body: "You tell us where young people are. We meet them there." },
-  { title: "Apprenticeship pathways on the platform", body: "Your training centers and intake processes, made visible to the next generation." },
-  { title: "Foundation-backed cost removal", body: "The Runwayz Foundation covers gear, transportation, and intake fees for young people who'd otherwise walk away." },
-  { title: "Transparent outcomes reporting", body: "Apprenticeship applications, completions, retention — the numbers your locals actually care about." },
+const GETS = [
+  {
+    title: "A branded page for your union",
+    body: "Build your branded page to reach the next generation, and promote your apprenticeships, training centers, and locals to new talent.",
+  },
+  {
+    title: "Co-designed rollout in your geography",
+    body: "You tell us where young people are, and we meet them there, in the locals and regions where you need growth most.",
+  },
+  {
+    title: "Apprenticeship pathways on the platform",
+    body: "Your training centers and intake processes, made visible to the next generation.",
+  },
+  {
+    title: "Co-branded recruitment campaigns",
+    body: "Your union's name leads, helping funnel interested talent to your apprenticeships and locals.",
+  },
+  {
+    title: "Foundation-backed cost removal",
+    body: "The Runwayz Foundation covers gear, transportation, and intake fees for young people who would otherwise walk away.",
+  },
+  {
+    title: "Quarterly pipeline reports",
+    body: "Full visibility into ROI on Runwayz: track impressions, candidates, conversion, and apprenticeship and membership outcomes.",
+  },
+  {
+    title: "Dedicated partner success team",
+    body: "One dedicated point of contact at Runwayz to help your union get the most out of the partnership.",
+  },
 ];
 
 export default function UnionsPage() {
@@ -120,7 +145,7 @@ export default function UnionsPage() {
       </Hero>
 
       {/* The Runwayz platform: Engage → Nurture → Grow → Measure */}
-      <section className="mt-12">
+      <section className="mt-6">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">The Runwayz platform</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">
           Runwayz: Helping Trade Unions engage, nurture, and build new members.
@@ -197,7 +222,7 @@ export default function UnionsPage() {
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">Trade partners</h2>
         <div className="mt-4 max-w-3xl space-y-4 text-fg2">
           <p>Become a Runwayz partner to put your union&apos;s content in front of people who are exploring your trade.</p>
-          <p>Learners on Runwayz can explore every trade (with our careers explorer, built on the O*Net careers data set). Turn that pool of curious explorers into a real membership pipeline for your union by becoming a partner.</p>
+          <p>Early-career talent on Runwayz can explore every trade (with our careers explorer, built on the O*Net careers data set). Turn that pool of curious explorers into a real membership pipeline for your union by becoming a partner.</p>
         </div>
 
         <h3 className="mt-10 text-xl font-bold tracking-tight text-fg1">What you get</h3>
@@ -243,7 +268,7 @@ export default function UnionsPage() {
         </h2>
         <div className="mt-4 max-w-3xl space-y-4 text-fg2">
           <p>For two decades the pipeline into the trades has been quietly drying up. Fewer apprentices. Fewer dues-paying workers. Fewer young hands learning the craft from the ones who built it.</p>
-          <p>The trade didn&apos;t lose its value, but the culture pushed more students towards a narrow definition of success. Runwayz exists to help connect early-career talent to trades that will offer them great livelihoods.</p>
+          <p>The trade didn&apos;t lose its value, but the culture pushed more students toward a narrow definition of success. Runwayz exists to help connect early-career talent to trades that will offer them great livelihoods.</p>
         </div>
         <dl className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s) => (
@@ -266,21 +291,62 @@ export default function UnionsPage() {
         </dl>
       </section>
 
-      {/* The partnership */}
-      <section className="mt-20 border-t border-border pt-12">
-        <h2 className="text-3xl font-bold tracking-tight text-fg1">A collaborative build — not a vendor pitch.</h2>
-        <div className="mt-4 max-w-3xl space-y-4 text-fg2">
-          <p>We&apos;re not asking unions to adopt a platform. We&apos;re asking a small group of partner unions to help us build the right one — together, in their geography, with their locals and training directors.</p>
-          <p>The model is co-design. You shape where Runwayz shows up, which apprenticeship pathways are featured, and how outcomes get measured. The trade decides what its own pipeline looks like.</p>
+      {/* Pull quote — union partner */}
+      <section className="relative left-1/2 mt-20 w-screen -translate-x-1/2 overflow-hidden">
+        <Image src="/brand/talent-pullquote.png" alt="" fill sizes="100vw" className="object-cover object-center" />
+        <div aria-hidden className="absolute inset-0 bg-black/55" />
+        <div className="relative z-[1] mx-auto max-w-4xl px-6 py-24 text-center sm:py-32">
+          <figure className="[text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
+            <blockquote className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              &ldquo;We don&apos;t just build carpenters; we build leaders. Runwayz will truly help
+              us find the leaders.&rdquo;
+            </blockquote>
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <Image
+                src="/brand/travis-williams.jpg"
+                alt="Travis Williams"
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-white/30 [text-shadow:none]"
+              />
+              <figcaption className="text-left text-sm text-white/90">
+                <span className="block font-semibold text-white">Travis Williams</span>
+                CMRCC Representative, Central Midwest Carpenters
+              </figcaption>
+            </div>
+          </figure>
         </div>
-        <ul className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
-          {PARTNERSHIP.map((p) => (
-            <li key={p.title} className="border-l-2 border-accent pl-4">
-              <p className="font-semibold text-fg1">{p.title}</p>
-              <p className="mt-1 text-sm text-fg2">{p.body}</p>
-            </li>
+      </section>
+
+      {/* Partner with Runwayz */}
+      <section className="mt-20 border-t border-border pt-12">
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-fg3">Strategic partner pilot</p>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight text-fg1">Partner with Runwayz</h2>
+        <p className="subheading mt-4 max-w-3xl text-fg2">
+          Adopt Runwayz as a Trade Union to grow your membership and apprenticeship intake. Join a
+          small group of founding union partners helping shape the platform.
+        </p>
+        <p className="mt-4 max-w-3xl text-fg2">
+          We are not asking unions to adopt a finished platform. We are asking partner unions to help
+          build the right one, together, in your geography, with your locals and training directors.
+          You shape where Runwayz shows up, which apprenticeship pathways are featured, and how
+          outcomes get measured.
+        </p>
+
+        <h3 className="mt-10 text-xl font-bold tracking-tight text-fg1">Your union gets</h3>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {GETS.map((g) => (
+            <div key={g.title} className="rounded-2xl border border-border bg-surface p-6">
+              <div className="flex items-start gap-2.5">
+                <svg className="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                  <path fillRule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4l3.1 3.1 6.8-6.8a1 1 0 011.4 0z" clipRule="evenodd" />
+                </svg>
+                <h4 className="font-bold text-fg1">{g.title}</h4>
+              </div>
+              <p className="mt-2 text-sm text-fg2">{g.body}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       {/* Consistent CTA (shared across Who-we-serve pages) */}
