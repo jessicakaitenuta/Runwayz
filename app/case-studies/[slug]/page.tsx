@@ -9,7 +9,6 @@ import type { SanityImageSource } from "@sanity/image-url";
 // slugs 404 (no server to render them on demand). Content refreshes when the
 // Sanity webhook triggers a rebuild.
 export const dynamicParams = false;
-export const revalidate = 0;
 
 type CaseStudy = {
   title: string;
