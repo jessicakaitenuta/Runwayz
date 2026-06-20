@@ -89,10 +89,9 @@ Editors never touch code. They work entirely in the hosted Studio:
    work stays a private *draft* and never appears on the live site.
 
 **When does it show up on the site?** The site is rebuilt from published content.
-Once the publish webhook is configured (see *Automatic content updates* below),
-publishing rebuilds the site automatically in ~1–2 minutes. Until then, a
-developer has to trigger a rebuild (push to `master`, or **Actions → Deploy to
-GitHub Pages → Run workflow**).
+Publishing fires the Sanity webhook (see *Automatic content updates* below), which
+rebuilds the site automatically in ~1–2 minutes. You can also trigger a rebuild
+manually (push to `master`, or **Actions → Deploy to GitHub Pages → Run workflow**).
 
 > **Don't delete the last item of a type.** Because pages are statically
 > generated, the build fails if **Blog Post** or **Case Study** has zero
@@ -157,29 +156,29 @@ whatever is published when the workflow runs.
 **Settings → Pages**) and point DNS at GitHub. No code changes — the export is
 already served from the site root.
 
-### Automatic content updates (Sanity webhook)
+### Automatic content updates (Sanity webhook) ✅
 
-> ⚠️ **NOT YET SET UP — this is the last remaining setup step.** Until it's
-> done, publishing in the Studio does **not** update the live site on its own;
-> a developer has to trigger a rebuild (push to `master`, or **Actions → Deploy
-> to GitHub Pages → Run workflow**). The workflow already listens for the
-> `sanity-publish` event — only the Sanity-side webhook below is missing.
+Because the site is statically exported, publishing in Sanity triggers a
+**rebuild** via a GitHub `repository_dispatch`. This is **configured and live** —
+publishing a document rebuilds the site in ~1–2 minutes. The deploy workflow
+listens for it (`repository_dispatch: types: [sanity-publish]`).
 
-Because the site is statically exported, publishing in Sanity must trigger a
-**rebuild**. Wire a Sanity webhook to a GitHub `repository_dispatch`:
+How it was set up (for reference / if the token ever needs rotating):
 
-1. Create a GitHub fine-grained personal access token with **Contents: read &
-   write** (or **Actions**) on this repo.
-2. In Sanity: **Manage → API → Webhooks → Create webhook**
+1. Created a GitHub fine-grained personal access token with **Contents: read &
+   write**, resource owner **`runwayz`** (the org — not your personal account).
+2. In Sanity: **Manage → API → Webhooks**, with:
    - **URL:** `https://api.github.com/repos/runwayz/runwayz.github.io/dispatches`
-   - **Method:** `POST`
+   - **HTTP method:** `POST`
    - **HTTP Headers:**
-     `Authorization: Bearer <token>`,
+     `Authorization: Bearer <token>` (note: `Bearer ` then a space — no colon),
      `Accept: application/vnd.github+json`
-   - **Trigger on:** Create, Update, Delete
-   - **Projection / body:** `{ "event_type": "sanity-publish" }`
-3. Publishing now fires the `sanity-publish` event, which the deploy workflow
-   listens for (`repository_dispatch`) and rebuilds the site (~1–2 min).
+   - **Trigger on:** Create, Update, Delete (Drafts off)
+   - **Projection** (under *Advanced settings*): `{"event_type": "sanity-publish"}`
+     — required; GitHub rejects the call without an `event_type`.
+
+To debug a delivery, use the webhook's **⋯ → Attempts log**: `204` = success,
+`422` = bad/empty Projection, `401/403` = token/Authorization header.
 
 ## Adding a new content type later
 
