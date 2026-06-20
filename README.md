@@ -128,6 +128,13 @@ whatever is published when the workflow runs.
 already served from the site root.
 
 ### Automatic content updates (Sanity webhook)
+
+> ⚠️ **NOT YET SET UP — this is the last remaining setup step.** Until it's
+> done, publishing in the Studio does **not** update the live site on its own;
+> a developer has to trigger a rebuild (push to `master`, or **Actions → Deploy
+> to GitHub Pages → Run workflow**). The workflow already listens for the
+> `sanity-publish` event — only the Sanity-side webhook below is missing.
+
 Because the site is statically exported, publishing in Sanity must trigger a
 **rebuild**. Wire a Sanity webhook to a GitHub `repository_dispatch`:
 
